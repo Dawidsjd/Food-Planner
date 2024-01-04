@@ -1,4 +1,4 @@
-import background from '../../assets/travis.jpg'
+import background from '../../assets/majkidzordan.jpg'
 
 const styles = {
     RecipeSearchContainer: {
