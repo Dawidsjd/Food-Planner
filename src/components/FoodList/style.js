@@ -34,6 +34,13 @@ const styles = {
       height: "50%", // 50% wysokości, aby zajmować dolną połowę ekranu
       backgroundColor: "yellow", // Dostosuj kolor
     },
+
+    GeneratedBox: {
+        width: "80%",
+        minHeight: "100px",
+        backgroundColor: "purple",
+        margin: "5px",
+      },
   };
   
   export default styles;

@@ -46,7 +46,7 @@ const LoadingIndicator = ({ loading }) => {
   );
 };
 
-const SearchFood = () => {
+const SearchFood = ({ onDragStart }) => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
   const [searchClicked, setSearchClicked] = useState(false);
@@ -123,7 +123,7 @@ const SearchFood = () => {
         <div style={styles.RecipeListContainer}>
           {recipes.length > 0 ? (
             recipes.map((recipe) => (
-              <div key={recipe.id}>
+              <div key={recipe.id} draggable onDragStart={() => onDragStart(recipe)}>
                 <Card
                   sx={{ maxWidth: 345 }}
                   onClick={() => handleClickOpen(recipe)}
