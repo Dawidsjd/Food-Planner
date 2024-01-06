@@ -1,16 +1,38 @@
-import background from '../../assets/majkidzordan.jpg'
-
 const styles = {
-    RecipeSearchContainer: {
-      backgroundImage: `url(${background})`,
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      width: "100%",
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    LeftTop: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
+      height: "50%", // 50% wysokości, aby zajmować górną połowę ekranu
+      backgroundColor: "blue", // Dostosuj kolor
+    },
+  
+    RightTop: {
+      position: "absolute",
+      top: 0,
+      right: 0,
+      width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
+      height: "50%", // 50% wysokości, aby zajmować górną połowę ekranu
+      backgroundColor: "green", // Dostosuj kolor
+    },
+  
+    LeftBottom: {
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
+      height: "50%", // 50% wysokości, aby zajmować dolną połowę ekranu
+      
+    },
+  
+    RightBottom: {
+      position: "absolute",
+      bottom: 0,
+      right: 0,
+      width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
+      height: "50%", // 50% wysokości, aby zajmować dolną połowę ekranu
+      backgroundColor: "yellow", // Dostosuj kolor
     },
   };
   
