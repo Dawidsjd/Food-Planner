@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import styles from './style'
+import React from 'react';
+import styles from './style';
 
-const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onInputChange, onDragStart, onDrop }) => {
+const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
   return (
     <>
       {Array.from({ length: numberOfBoxes }, (_, i) => i).map((i) => {
@@ -15,14 +15,20 @@ const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onInputChange, onDragStart
             onDrop={() => onDrop(i)}
           >
             Box {i + 1}
-            {draggedRecipe && (
-              <div style={styles.DraggedRecipeName}>
-                <img src={draggedRecipe.thumbnail_url} alt={draggedRecipe.name} width="75px" />
-                <p>Calories: {draggedRecipe.caloriesValue}</p>
-                <p>Fat: {draggedRecipe.fatValue}</p>
-                <p>Carbohydrates: {draggedRecipe.carbohydratesValue}</p>
-                <p>Protein: {draggedRecipe.proteinValue}</p>
-              </div>
+            {draggedRecipe ? (
+              draggedRecipe.caloriesValue !== undefined ? (
+                <div style={styles.DraggedRecipeName}>
+                  <img src={draggedRecipe.thumbnail_url} alt={draggedRecipe.name} width="75px" />
+                  <p>Calories: {draggedRecipe.caloriesValue}</p>
+                  <p>Fat: {draggedRecipe.fatValue}</p>
+                  <p>Carbohydrates: {draggedRecipe.carbohydratesValue}</p>
+                  <p>Protein: {draggedRecipe.proteinValue}</p>
+                </div>
+              ) : (
+                <p>No nutrition data available</p>
+              )
+            ) : (
+              <p>No recipe selected</p>
             )}
           </div>
         );

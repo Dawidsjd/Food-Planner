@@ -89,11 +89,13 @@ const FoodList = () => {
           max="5"
           style={styles.InputNumber}
         />
+        <div style={styles.ScrollMealsContainer}>
         <MealsPerDay
           numberOfBoxes={numberOfBoxes}
           draggedRecipes={draggedRecipes}
           onDrop={handleDrop}
         />
+        </div>
       </div>
 
     </>
