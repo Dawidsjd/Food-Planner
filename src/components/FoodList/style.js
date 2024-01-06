@@ -4,7 +4,7 @@ const styles = {
       top: 0,
       left: 0,
       width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
-      height: "50%", // 50% wysokości, aby zajmować górną połowę ekranu
+      height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
       backgroundColor: "blue", // Dostosuj kolor
     },
   
@@ -13,7 +13,7 @@ const styles = {
       top: 0,
       right: 0,
       width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
-      height: "50%", // 50% wysokości, aby zajmować górną połowę ekranu
+      height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
       backgroundColor: "green", // Dostosuj kolor
     },
   
@@ -22,7 +22,7 @@ const styles = {
       bottom: 0,
       left: 0,
       width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
-      height: "50%", // 50% wysokości, aby zajmować dolną połowę ekranu
+      height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
       
     },
   
@@ -31,16 +31,11 @@ const styles = {
       bottom: 0,
       right: 0,
       width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
-      height: "50%", // 50% wysokości, aby zajmować dolną połowę ekranu
+      height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
       backgroundColor: "yellow", // Dostosuj kolor
     },
 
-    GeneratedBox: {
-        width: "80%",
-        minHeight: "100px",
-        backgroundColor: "purple",
-        margin: "5px",
-      },
+    
   };
   
   export default styles;
