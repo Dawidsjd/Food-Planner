@@ -9,6 +9,10 @@ import DialogActions from "@mui/material/DialogActions";
 import AddchartIcon from '@mui/icons-material/Addchart';
 import styles from './style';
 import { CircularProgress } from '@mui/material';
+import Carbs from '../../../assets/Group 1.svg'
+import Fats from '../../../assets/Group 2.svg'
+import Protein from '../../../assets/Group 3.svg'
+import Calories from '../../../assets/Group 4.svg'
 
 const MakroProgress = ({ draggedRecipes }) => {
   const [totalCalories, setTotalCalories] = useState(0);
@@ -39,12 +43,11 @@ const MakroProgress = ({ draggedRecipes }) => {
     setTotalCarbohydrates(sumCarbohydrates);
   }, [draggedRecipes]);
 
- // Funkcja do obliczania procentowego spełnienia celu
-const calculateGoalPercentage = (value, goal) => {
-  const percentage = ((value / goal) * 100).toFixed(1);
-  return percentage > 100 ? 100 : percentage;
-};
-
+  // Funkcja do obliczania procentowego spełnienia celu
+  const calculateGoalPercentage = (value, goal) => {
+    const percentage = ((value / goal) * 100).toFixed(1);
+    return percentage > 100 ? 100 : percentage;
+  };
 
   const handleOpenDialog = () => {
     setOpenDialog(true);
@@ -62,14 +65,41 @@ const calculateGoalPercentage = (value, goal) => {
   };
 
   return (
-    <div>
-      <div style={styles.RightAlignContainer}>
-        <Tooltip title="Open Macro Goals">
-          <IconButton onClick={handleOpenDialog}>
-            <AddchartIcon style={{color: '111'}} />
-          </IconButton>
-        </Tooltip>
+    <div style={styles.WidgetStatsContainer}>
+      
+
+      <div style={styles.StatsContainer}>
+      <div style={styles.ProgressContainer}>
+        {['carbohydrates', 'fat', 'protein', 'calories'].map((macro, index) => (
+          <div key={index} style={styles.ProgressIcon}>
+            <CircularProgress
+              variant="determinate"
+              value={Math.min(
+                calculateGoalPercentage(
+                  macro === 'calories'
+                    ? totalCalories
+                    : macro === 'fat'
+                    ? totalFat
+                    : macro === 'protein'
+                    ? totalProtein
+                    : totalCarbohydrates,
+                  dailyGoals[macro]
+                ),
+                100 // Maksymalna wartość dla CircularProgress
+              )}
+              size={[65, 85, 110, 140][index]}
+              style={{ color: colors[index] }}
+            />
+          </div>
+        ))}
       </div>
+        <div style={styles.RightAlignContainer}>
+          <Tooltip title="Open Macro Goals">
+            <IconButton onClick={handleOpenDialog}>
+              <AddchartIcon style={{ color: '111' }} />
+            </IconButton>
+          </Tooltip>
+        </div>
 
       <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="md">
         <DialogTitle>Macro Goals</DialogTitle>
@@ -112,60 +142,53 @@ const calculateGoalPercentage = (value, goal) => {
           <Button onClick={handleCloseDialog}>Close</Button>
         </DialogActions>
       </Dialog>
+      
+        <div style={styles.InfoProgressContainer}>
 
+          <div style={styles.StatsElement}>
+            <img src={Carbs} alt="Carbs" />
+            <div style={styles.MakroContent}>
+              <h2 style={{color: '#6A8D73'}}>Carbs</h2>
+              <p>
+              {calculateGoalPercentage(totalCarbohydrates, dailyGoals.carbohydrates)}% {totalCarbohydrates}g
+              </p>
+            </div>
+          </div>
 
-<div style={styles.StatsContainer}>
+          <div style={styles.StatsElement}>
+            <img src={Fats} alt="Fats" />
+            <div style={styles.MakroContent}>
+            <h2 style={{color: '#9F8BE8'}}>Fats</h2>
+              <p>
+              {calculateGoalPercentage(totalFat, dailyGoals.fat)}% {totalFat}g
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style={styles.InfoProgressContainer}>
+        <div style={styles.StatsElement}>
+            <img src={Protein} alt="Protein" />
+            <div style={styles.MakroContent}>
+            <h2 style={{color: '#F0A868'}}>Protein</h2>
+              <p>
+              {calculateGoalPercentage(totalProtein, dailyGoals.protein)}% {totalProtein}g
+              </p>
+            </div>
+          </div>
+          <div style={styles.StatsElement}>
+            <img src={Calories} alt="Calories" />
+            <div style={styles.MakroContent}>
+            <h2 style={{color: '#000000'}}>Calories</h2>
+              <p>
+                {calculateGoalPercentage(totalCalories, dailyGoals.calories)}% {totalCalories}g
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div style={styles.ProgressContainer}>
-  {['carbohydrates','fat','protein','calories',].map((macro, index) => (
-    <div key={index} style={styles.ProgressIcon}>
-            <CircularProgress
-        variant="determinate"
-        value={Math.min(
-          calculateGoalPercentage(
-            macro === 'calories'
-              ? totalCalories
-              : macro === 'fat'
-              ? totalFat
-              : macro === 'protein'
-              ? totalProtein
-              : totalCarbohydrates,
-            dailyGoals[macro]
-          ),
-          100  // Maksymalna wartość dla CircularProgress
-        )}
-        size={[40, 60, 85, 115][index]}
-        style={{ color: colors[index] }}
-      />
-
+      
     </div>
-  ))}
-</div>
-
-      <div style={styles.InfoProgressContainer}>
-      <h2>
-        Total Calories: {totalCalories}kcal (
-        
-        {calculateGoalPercentage(totalCalories, dailyGoals.calories)}%)
-      </h2>
-      <h2>
-        Total Fat: {totalFat}g (
-        
-        {calculateGoalPercentage(totalFat, dailyGoals.fat)}%)
-      </h2>
-      <h2>
-        Total Protein: {totalProtein}g (
-        
-        {calculateGoalPercentage(totalProtein, dailyGoals.protein)}%)
-      </h2>
-      <h2>
-        Total Carbohydrates: {totalCarbohydrates}g (
-        
-        {calculateGoalPercentage(totalCarbohydrates, dailyGoals.carbohydrates)}%)
-      </h2>
-    </div>
-    </div>
-  </div>
   );
 };
 
