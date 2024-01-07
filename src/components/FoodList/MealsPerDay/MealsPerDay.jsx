@@ -18,7 +18,7 @@ const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
             {draggedRecipe ? (
               draggedRecipe.caloriesValue !== undefined ? (
                 <div style={styles.DraggedRecipeName}>
-                  <img src={draggedRecipe.thumbnail_url} alt={draggedRecipe.name} width="75px" />
+                  <img src={draggedRecipe.thumbnail_url} alt={draggedRecipe.name} style={{width: '75px', objectFit: 'cover'}} />
                   <p>Calories: {draggedRecipe.caloriesValue}</p>
                   <p>Fat: {draggedRecipe.fatValue}</p>
                   <p>Carbohydrates: {draggedRecipe.carbohydratesValue}</p>

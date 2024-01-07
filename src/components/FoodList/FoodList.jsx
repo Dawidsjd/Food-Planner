@@ -27,7 +27,7 @@ const FoodList = () => {
       const draggedRecipe = draggedRecipes[draggedRecipeIndex];
 
       try {
-        // Fetch danych nutrystycznych
+        
         const url = `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${draggedRecipe.id}`;
         const options = {
           method: 'GET',
@@ -40,7 +40,7 @@ const FoodList = () => {
         const response = await fetch(url, options);
         const result = await response.json();
 
-        // Przenieś informacje o wartościach odżywczych do zmiennej
+       
         const caloriesValue = result.nutrition.calories;
         const fatValue = result.nutrition.fat;
         const carbohydratesValue = result.nutrition.carbohydrates;

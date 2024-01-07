@@ -14,7 +14,7 @@ const styles = {
       right: 0,
       width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
       height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
-      backgroundColor: "green", // Dostosuj kolor
+      border: '1px solid' // Dostosuj kolor
     },
   
     LeftBottom: {
