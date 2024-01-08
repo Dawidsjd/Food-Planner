@@ -13,7 +13,6 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Link } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import styles from "./style";
 import globalTheme from "../../../globalTheme/globalTheme";
@@ -36,7 +35,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     fill: "#fff",
   },
 }));
-
 
 const LoadingIndicator = ({ loading }) => {
   return (
@@ -97,13 +95,11 @@ const SearchFood = ({ onDragStart }) => {
     setSearchClicked(true);
   };
 
-
   return (
     <div style={styles.RecipeSearchContainer}>
       {/* Wyszukiwarka jedzenia */}
-      
+
       <div style={styles.RecipeSearchContent}>
-        
         <div style={styles.SearchInputContainer}>
           <input
             type="text"
@@ -112,10 +108,7 @@ const SearchFood = ({ onDragStart }) => {
             placeholder="Search... (e.g. Chicken)"
             style={styles.SearchInput}
           />
-          <button
-            onClick={handleSearch}
-            style={styles.SearchButton}
-          >
+          <button onClick={handleSearch} style={styles.SearchButton}>
             Search
           </button>
         </div>
@@ -123,7 +116,11 @@ const SearchFood = ({ onDragStart }) => {
         <div style={styles.RecipeListContainer}>
           {recipes.length > 0 ? (
             recipes.map((recipe) => (
-              <div key={recipe.id} draggable onDragStart={() => onDragStart(recipe)}>
+              <div
+                key={recipe.id}
+                draggable
+                onDragStart={() => onDragStart(recipe)}
+              >
                 <Card
                   sx={{ maxWidth: 345 }}
                   onClick={() => handleClickOpen(recipe)}
@@ -210,8 +207,10 @@ const SearchFood = ({ onDragStart }) => {
                   style={{ marginBottom: "10px" }}
                 />
               )}
-              <Typography gutterBottom style={{ textAlign: "center"}}>
-                <h3 style={{ textAlign: "center", margin: "5%" }}>Description</h3>
+              <Typography gutterBottom style={{ textAlign: "center" }}>
+                <h3 style={{ textAlign: "center", margin: "5%" }}>
+                  Description
+                </h3>
                 {selectedRecipe.description}
               </Typography>
               <h3 style={{ textAlign: "center", margin: "5%" }}>Video</h3>
@@ -240,18 +239,22 @@ const SearchFood = ({ onDragStart }) => {
               <h3 style={{ textAlign: "center", margin: "5%" }}>Ingredients</h3>
               {selectedRecipe.sections &&
                 selectedRecipe.sections[0].components && (
-                  <ul style={{marginLeft: "10%"}}>
+                  <ul style={{ marginLeft: "10%" }}>
                     {selectedRecipe.sections[0].components.map(
                       (component, index) => (
-                        <li key={index} style={{margin: "5px"}}>{component.raw_text}</li>
+                        <li key={index} style={{ margin: "5px" }}>
+                          {component.raw_text}
+                        </li>
                       )
                     )}
                   </ul>
                 )}
-              <h3 style={{ textAlign: "center", margin: "5%" }}>Instructions</h3>
+              <h3 style={{ textAlign: "center", margin: "5%" }}>
+                Instructions
+              </h3>
               {selectedRecipe.instructions &&
                 selectedRecipe.instructions.map((instruction, index) => (
-                  <div key={index} style={{ textAlign: "center"}}>
+                  <div key={index} style={{ textAlign: "center" }}>
                     <p>{instruction.display_text}</p>
                     {instruction.components && (
                       <ul>
@@ -270,7 +273,6 @@ const SearchFood = ({ onDragStart }) => {
             </DialogActions>
           </BootstrapDialog>
         )}
-      
       </div>
     </div>
   );

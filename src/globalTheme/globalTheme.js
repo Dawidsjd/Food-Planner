@@ -1,49 +1,50 @@
-import { createTheme } from '@mui/material';
+import { createTheme } from "@mui/material";
 
 const globalTheme = createTheme({
   palette: {
     primary: {
-      main: '#003366',
-      dark: '#001e3b',
+      main: "#6A8D73",
     },
     secondary: {
-      main: '#88a2c4',
+      main: "#FFFFFF",
     },
     tetriary: {
-      main: '#a9c9dd',
+      main: "#FFE8C2",
     },
-    tiles: {
-      main: '#003972',
-      light: 'rgba(8, 52, 100, 0.5)',
+    complementary: {
+      main: "#D9D9D9",
     },
-    textcolorprimary: {
-      main: '#ffffff',
+    background: {
+      main: "#E4FFE1",
+      additional: "#F4FDD9",
     },
-    textcolorsecondary: {
-      main: '#caf0f6',
+    textcolor: {
+      primary: "#000000",
+      secondary: "#9F8BE8",
     },
-    textcolortetriary: {
-      main: '#000000',
+    additional: {
+      first: "#86BF80",
+      second: "#F0A868",
     },
   },
   typography: {
-    semismallfontsize: {
-      main: '14px',
+    header: {
+      main: "36px",
     },
-    smallfontsize: {
-      main: '16px',
+    title: {
+      main: "24px",
     },
-    semimediumfontsize: {
-      main: '20px',
+    subtitle: {
+      main: "18px",
     },
-    mediumfontsize: {
-      main: '24px',
+    primary: {
+      main: "16px",
     },
-    semibigfontsize: {
-      main: '30px',
+    secondary: {
+      main: "14px",
     },
-    bigfontsize: {
-      main: '50px',
+    button: {
+      main: "16px",
     },
   },
 });
