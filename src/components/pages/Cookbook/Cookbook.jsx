@@ -1,7 +1,8 @@
 import React from "react";
+import Menu from "../../Menu/Menu";
 
 const Cookbook = () => {
-  return <div>Cookbook</div>;
+  return <Menu />;
 };
 
 export default Cookbook;

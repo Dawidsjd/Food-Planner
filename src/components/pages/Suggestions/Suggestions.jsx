@@ -1,7 +1,8 @@
 import React from "react";
+import Menu from "../../Menu/Menu";
 
 const Suggestions = () => {
-  return <div>Suggestions</div>;
+  return <Menu />;
 };
 
 export default Suggestions;

@@ -1,7 +1,8 @@
 import React from "react";
+import Menu from "../../Menu/Menu";
 
 const MealPlanner = () => {
-  return <div>MealPlanner</div>;
+  return <Menu />;
 };
 
 export default MealPlanner;
