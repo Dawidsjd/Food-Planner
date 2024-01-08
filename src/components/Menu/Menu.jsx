@@ -7,9 +7,15 @@ import {
   StyledNav,
   StyledNavbar,
   StyledWrapper,
+  StyledWrapperOption,
   StyledItem,
   StyledIcon,
+  StyledText,
 } from "./styles";
+import { IoMdHome } from "react-icons/io";
+import { FaCalendar, FaBook, FaRegStar } from "react-icons/fa";
+import { IoMdLogIn } from "react-icons/io";
+import { CiSettings } from "react-icons/ci";
 
 const Menu = () => {
   const [clicked, setClicked] = useState(false);
@@ -32,7 +38,10 @@ const Menu = () => {
                   isActive ? "link-active" : "link"
                 }
               >
-                Home
+                <StyledIcon>
+                  <IoMdHome />
+                </StyledIcon>
+                <StyledText>Home</StyledText>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -43,7 +52,10 @@ const Menu = () => {
                   isActive ? "link-active" : "link"
                 }
               >
-                Meal Planner
+                <StyledIcon>
+                  <FaCalendar />
+                </StyledIcon>
+                <StyledText>Meal Planner</StyledText>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -54,7 +66,10 @@ const Menu = () => {
                   isActive ? "link-active" : "link"
                 }
               >
-                Cookbook
+                <StyledIcon>
+                  <FaBook />
+                </StyledIcon>
+                <StyledText>Cookbook</StyledText>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -65,11 +80,14 @@ const Menu = () => {
                   isActive ? "link-active" : "link"
                 }
               >
-                Suggestions
+                <StyledIcon>
+                  <FaRegStar />
+                </StyledIcon>
+                <StyledText>Suggestions</StyledText>
               </NavLink>
             </StyledItem>
           </StyledWrapper>
-          <StyledWrapper>
+          <StyledWrapperOption>
             <StyledItem>
               <NavLink
                 to="/Settings"
@@ -78,7 +96,10 @@ const Menu = () => {
                   isActive ? "link-active-other" : "link-other"
                 }
               >
-                Settings
+                <StyledIcon>
+                  <CiSettings />
+                </StyledIcon>
+                <StyledText>Settings</StyledText>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -89,10 +110,13 @@ const Menu = () => {
                   isActive ? "link-active-other" : "link-other"
                 }
               >
-                Sign In
+                <StyledIcon>
+                  <IoMdLogIn />
+                </StyledIcon>
+                <StyledText>Sign In</StyledText>
               </NavLink>
             </StyledItem>
-          </StyledWrapper>
+          </StyledWrapperOption>
         </StyledNavbar>
       </StyledNav>
     </StyledContainer>
