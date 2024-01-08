@@ -9,7 +9,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px solid'
+    
   },
 
   RightTop: {
@@ -18,14 +18,13 @@ const styles = {
     right: 0,
     width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
     height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
-    border: '1px solid' // Dostosuj kolor
   },
 
   LeftBottom: {
     position: "absolute",
     bottom: 0,
     left: 0,
-    width: "45%", // 50% szerokości, aby zajmować lewą połowę ekranu
+    width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
     height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
     
   },
@@ -34,7 +33,7 @@ const styles = {
     position: "absolute",
     bottom: 0,
     right: 0,
-    width: "55%", // 50% szerokości, aby zajmować prawą połowę ekranu
+    width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
     height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
     // backgroundColor: "yellow", // Dostosuj kolor
     display: 'flex',

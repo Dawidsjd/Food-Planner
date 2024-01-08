@@ -1,4 +1,4 @@
-import background from '../../../assets/majkidzordan.jpg'
+import { styled } from '@mui/system';
 import globalTheme from '../../../globalTheme/globalTheme'
 
 const tileStyles = {
@@ -11,17 +11,19 @@ const tileStyles = {
   },
 };
 
+
 const styles = {
   RecipeSearchContainer: {
     // backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: "100%",
-    height: "100%",
+    width: "95%",
+    height: "95%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: "1em"
   },
   RecipeSearchContent: {
     display: "flex",

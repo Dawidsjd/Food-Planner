@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './style';
+import { GeneratedBox, DraggedRecipeName } from './style';
 
 const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
   return (
@@ -8,29 +8,32 @@ const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
         const draggedRecipe = draggedRecipes.find((recipe) => recipe.boxIndex === i);
 
         return (
-          <div
+          <GeneratedBox
             key={i}
-            style={styles.GeneratedBox}
             onDragOver={(e) => e.preventDefault()}
             onDrop={() => onDrop(i)}
           >
             Box {i + 1}
             {draggedRecipe ? (
               draggedRecipe.caloriesValue !== undefined ? (
-                <div style={styles.DraggedRecipeName}>
-                  <img src={draggedRecipe.thumbnail_url} alt={draggedRecipe.name} style={{width: '75px', objectFit: 'cover'}} />
+                <DraggedRecipeName>
+                  <img
+                    src={draggedRecipe.thumbnail_url}
+                    alt={draggedRecipe.name}
+                    style={{ width: '75px', objectFit: 'cover' }}
+                  />
                   <p>Calories: {draggedRecipe.caloriesValue}</p>
                   <p>Fat: {draggedRecipe.fatValue}</p>
                   <p>Carbohydrates: {draggedRecipe.carbohydratesValue}</p>
                   <p>Protein: {draggedRecipe.proteinValue}</p>
-                </div>
+                </DraggedRecipeName>
               ) : (
                 <p>No nutrition data available</p>
               )
             ) : (
               <p>No recipe selected</p>
             )}
-          </div>
+          </GeneratedBox>
         );
       })}
     </>

@@ -27,7 +27,7 @@ export const StatsContainer = styled('div')(({ theme }) => ({
   backdropFilter: "blur(9.3px)",
   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
   borderRadius: '10px',
-  [theme.breakpoints.down("1459")]: {
+  [theme.breakpoints.down("1498")]: {
     flexDirection: 'column'
   },
 }));
@@ -35,18 +35,23 @@ export const StatsContainer = styled('div')(({ theme }) => ({
 export const ProgressContainer = styled('div')(({ theme }) => ({
   position: 'relative',
   marginRight: '5em',
-  [theme.breakpoints.down("1639")]: {
+  [theme.breakpoints.down("2070")]: {
     marginRight: '2.5em',
   },
-  [theme.breakpoints.down("1565")]: {
-    marginRight: '1em',
+  [theme.breakpoints.down("2012")]: {
+    marginRight: '1.5em',
+    transform: 'scale(0.8)'
+  },
+  [theme.breakpoints.down("1605")]: {
+    marginRight: '0em',
     transform: 'scale(0.7)'
   },
-  [theme.breakpoints.down("1459")]: {
+  [theme.breakpoints.down("1498")]: {
     transform: 'scale(0.6)',
     
-    margin: '1em 0 0 1em'
+    margin: '1em 0 0 0'
   },
+  
   
 }));
 
@@ -58,15 +63,16 @@ export const StatsElement = styled('div')(({ theme }) => ({
 
 export const MakroContent = styled('div')(({ theme }) => ({
   marginLeft: '1.5em',
-  [theme.breakpoints.down("1459")]: {
+  [theme.breakpoints.down("1498")]: {
     marginLeft: '0',
-    marginRight: '1em'
+    marginRight: '6em',
+    textAlign: 'center'
   },
 }));
 
 export const InfoProgressContainer = styled('div')(({ theme }) => ({
   margin: '1em',
-  [theme.breakpoints.down("1459")]: {
+  [theme.breakpoints.down("1498")]: {
     display: 'flex',
     margin: '0',
     height: '30%',
@@ -76,6 +82,18 @@ export const InfoProgressContainer = styled('div')(({ theme }) => ({
     "& img": {
         display: 'none'
       },
+  },
+  [theme.breakpoints.down("1884")]: {
+    transform: 'scale(0.8)',
+    marginRight: '-1em'
+  },
+  [theme.breakpoints.down("1703")]: {
+    transform: 'scale(0.8)',
+    marginRight: '-2em'
+  },
+  [theme.breakpoints.down("1623")]: {
+    transform: 'scale(0.7)',
+    marginRight: '-2em'
   },
 }));
 
