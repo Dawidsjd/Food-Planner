@@ -12,7 +12,7 @@ import {
   StyledIcon,
   StyledText,
 } from "./styles";
-import { IoMdHome } from "react-icons/io";
+import { IoHomeSharp } from "react-icons/io5";
 import { FaCalendar, FaBook, FaRegStar } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
@@ -39,7 +39,7 @@ const Menu = () => {
                 }
               >
                 <StyledIcon>
-                  <IoMdHome />
+                  <IoHomeSharp />
                 </StyledIcon>
                 <StyledText>Home</StyledText>
               </NavLink>
