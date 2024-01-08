@@ -93,7 +93,7 @@ const Menu = () => {
                 to="/Settings"
                 activeClassName="active"
                 className={({ isActive }) =>
-                  isActive ? "link-active-other" : "link-other"
+                  isActive ? "link-active-bottom" : "link-bottom"
                 }
               >
                 <StyledIcon>
@@ -102,12 +102,14 @@ const Menu = () => {
                 <StyledText>Settings</StyledText>
               </NavLink>
             </StyledItem>
+
+            {/* To do zmiany jak zrobi się firebase i logowanie */}
             <StyledItem>
               <NavLink
                 to="/SignIn"
                 activeClassName="active"
                 className={({ isActive }) =>
-                  isActive ? "link-active-other" : "link-other"
+                  isActive ? "link-active-bottom" : "link-bottom"
                 }
               >
                 <StyledIcon>

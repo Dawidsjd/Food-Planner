@@ -9,13 +9,14 @@ export const StyledContainer = styled("div")(({ theme }) => ({
   borderRadius: "0 40px 40px 0",
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
   justifyContent: "space-between",
   position: "relative",
   width: "20%",
   margin: "0",
 
   [theme.breakpoints.down("lg")]: {
-    width: "15%",
+    width: "17.5%",
   },
 
   [theme.breakpoints.down("md")]: {
@@ -30,7 +31,7 @@ export const StyledContainer = styled("div")(({ theme }) => ({
   },
 }));
 
-export const LogoContainer = styled("Link")(({ theme }) => ({
+export const LogoContainer = styled(Link)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     display: "flex",
     marginTop: "40px",
@@ -52,7 +53,6 @@ export const StyledNav = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     display: "flex",
     width: "80%",
-    height: "auto",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -68,10 +68,12 @@ export const StyledNav = styled("div")(({ theme }) => ({
 export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
   display: "flex",
   flexDirection: "column",
+  alignItems: "center",
   height: "100%",
-  width: "75%",
+  width: "100%",
   "& .link, & .link-active": {
     display: "flex",
+    padding: "10px 60px",
     width: "100%",
     height: "100%",
     textDecoration: "none",
@@ -85,23 +87,40 @@ export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
       color: globalTheme.palette.secondary.main,
     },
   },
-  "& .link-other, & .link-active-other": {
-    "&:hover, &.link-active-other": {
-      background: "#2F3",
+
+  "& .link-bottom, & .link-active-bottom": {
+    display: "flex",
+    padding: "10px 60px",
+    width: "100%",
+    height: "100%",
+    textDecoration: "none",
+    borderRadius: "20px",
+    alignItems: "center",
+    justifyContent: "left",
+    color: globalTheme.palette.textcolor.primary,
+    fontSize: globalTheme.typography.subtitle.main,
+    "&:hover, &.link-active-bottom": {
+      background: globalTheme.palette.complementary.main,
     },
   },
+
   [theme.breakpoints.down("lg")]: {
-    "& .link, & .link-active": {
-      width: "85px",
-      height: "85px",
-      borderRadius: "90px",
+    "& .link, & .link-active, & .link-bottom, & .link-active-bottom": {
+      width: "70px",
+      height: "70px",
+      borderRadius: "45%",
       justifyContent: "center",
+    },
+  },
+  [theme.breakpoints.up("md")]: {
+    "& .link-active, & .link-active-bottom": {
+      boxShadow: "0px 0px 4px 4px rgba(231, 231, 231, 1)",
     },
   },
   [theme.breakpoints.down("md")]: {
     "& .link, & .link-active": {
-      width: "85px",
-      height: "85px",
+      width: "24px",
+      height: "24px",
       justifyContent: "space-betwen",
       "&:hover, &.link-active": {
         background: "none",
@@ -115,8 +134,9 @@ export const StyledWrapper = styled("section")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
+  minHeight: "440px",
   justifyContent: "center",
-  margin: "50px 0",
+  margin: "20px 0",
   [theme.breakpoints.down("md")]: {
     flexDirection: "row",
     margin: "0px",
@@ -130,16 +150,16 @@ export const StyledWrapperOption = styled("section")(({ theme }) => ({
     flexDirection: "column",
     width: "100%",
     justifyContent: "center",
-    margin: "50px 0",
+    margin: "20px 0",
   },
 }));
 
 export const StyledItem = styled("li")(({ theme }) => ({
   listStyleType: "none",
-  [theme.breakpoints.down("lg")]: {
-    display: "flex",
-    justifyContent: "center",
-  },
+  display: "flex",
+  justifyContent: "center",
+  margin: "10px 0",
+  [theme.breakpoints.down("lg")]: {},
 }));
 
 export const StyledText = styled("p")(({ theme }) => ({
@@ -151,6 +171,8 @@ export const StyledText = styled("p")(({ theme }) => ({
 export const StyledIcon = styled("i")(({ theme }) => ({
   fontSize: globalTheme.typography.title.main,
   padding: "5px",
+  display: "flex",
+  alignItems: "center",
   [theme.breakpoints.down("md")]: {
     fontSize: "32px",
   },
