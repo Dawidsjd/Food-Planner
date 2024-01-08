@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const StyledContainer = styled("div")(({ theme }) => ({
-  border: "1px solid black",
+  background: '#FFFFFF',
   minHeight: "100vh",
   borderRadius: "0 40px 40px 0",
   display: "flex",
@@ -14,6 +14,8 @@ export const StyledContainer = styled("div")(({ theme }) => ({
   position: "relative",
   width: "20%",
   margin: "0",
+  backdropFilter: "blur(9.3px)",
+    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
 
   [theme.breakpoints.down("lg")]: {
     width: "17.5%",

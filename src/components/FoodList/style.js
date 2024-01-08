@@ -1,53 +1,51 @@
+import { styled } from '@mui/system';
 
-const styles = {
-  LeftTop: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
-    height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    
-  },
+export const TopLeftContainer = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '50%',
+  height: '40%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  // Dodaj dodatkowe style według potrzeb
+}));
 
-  RightTop: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
-    height: "40%", // 50% wysokości, aby zajmować górną połowę ekranu
-  },
+export const TopRightContainer = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: '50%',
+  height: '40%',
+  // Dodaj dodatkowe style według potrzeb
+}));
 
-  LeftBottom: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "50%", // 50% szerokości, aby zajmować lewą połowę ekranu
-    height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
-    
-  },
+export const BottomLeftContainer = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width: '50%',
+  height: '60%',
+  // Dodaj dodatkowe style według potrzeb
+}));
 
-  RightBottom: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: "50%", // 50% szerokości, aby zajmować prawą połowę ekranu
-    height: "60%", // 50% wysokości, aby zajmować dolną połowę ekranu
-    // backgroundColor: "yellow", // Dostosuj kolor
-    display: 'flex',
+export const BottomRightContainer = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  bottom: 0,
+  right: 0,
+  width: '50%',
+  height: '60%',
+  display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-end', // Ustawia komponenty wewnątrz na końcu kontenera (po prawej stronie)
-  marginTop: '10px', // Dla odstępu od góry
-  },
-  ScrollMealsContainer: {
-    width: "50%",
-    overflowY: 'auto',
-    margin: "5%"
-  }
+  alignItems: 'flex-end',
+  marginTop: '10px',
+  // Dodaj dodatkowe style według potrzeb
+}));
 
-  
-};
-
-export default styles;
+export const ScrollMealsContainer = styled('div')(({ theme }) => ({
+  width: '50%',
+  overflowY: 'auto',
+  margin: '5%',
+  // Dodaj dodatkowe style według potrzeb
+}));
