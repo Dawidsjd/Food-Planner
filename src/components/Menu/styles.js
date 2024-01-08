@@ -49,20 +49,40 @@ export const StyledLogo = styled("div")(({ theme }) => ({
 }));
 
 export const StyledNav = styled("div")(({ theme }) => ({
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up("lg")]: {
     display: "flex",
-    width: "90%",
+    width: "80%",
     height: "auto",
-    margin: "0 0 50px 0",
     alignItems: "center",
     justifyContent: "center",
+  },
+  [theme.breakpoints.down("lg")]: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
   },
 }));
 
 export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  width: "75%",
   "& .link, & .link-active": {
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    textDecoration: "none",
+    borderRadius: "20px",
+    alignItems: "center",
+    justifyContent: "left",
+    color: globalTheme.palette.textcolor.primary,
+    fontSize: globalTheme.typography.subtitle.main,
     "&:hover, &.link-active": {
-      background: "#002950",
+      background: globalTheme.palette.primary.main,
+      color: globalTheme.palette.secondary.main,
     },
   },
   "& .link-other, & .link-active-other": {
@@ -70,10 +90,41 @@ export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
       background: "#2F3",
     },
   },
-  [theme.breakpoints.up("md")]: {},
+  [theme.breakpoints.down("lg")]: {
+    "& .link, & .link-active": {
+      width: "85px",
+      height: "85px",
+      borderRadius: "90px",
+      justifyContent: "center",
+    },
+  },
+  [theme.breakpoints.down("md")]: {
+    "& .link, & .link-active": {
+      width: "85px",
+      height: "85px",
+      justifyContent: "space-betwen",
+      "&:hover, &.link-active": {
+        background: "none",
+        color: globalTheme.palette.primary.main,
+      },
+    },
+  },
 }));
 
 export const StyledWrapper = styled("section")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  justifyContent: "center",
+  margin: "50px 0",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "row",
+    margin: "0px",
+  },
+}));
+
+export const StyledWrapperOption = styled("section")(({ theme }) => ({
+  display: "none",
   [theme.breakpoints.up("md")]: {
     display: "flex",
     flexDirection: "column",
@@ -84,9 +135,23 @@ export const StyledWrapper = styled("section")(({ theme }) => ({
 }));
 
 export const StyledItem = styled("li")(({ theme }) => ({
-  [theme.breakpoints.up("md")]: {},
+  listStyleType: "none",
+  [theme.breakpoints.down("lg")]: {
+    display: "flex",
+    justifyContent: "center",
+  },
+}));
+
+export const StyledText = styled("p")(({ theme }) => ({
+  [theme.breakpoints.down("lg")]: {
+    display: "none",
+  },
 }));
 
 export const StyledIcon = styled("i")(({ theme }) => ({
-  [theme.breakpoints.up("md")]: {},
+  fontSize: globalTheme.typography.title.main,
+  padding: "5px",
+  [theme.breakpoints.down("md")]: {
+    fontSize: "32px",
+  },
 }));
