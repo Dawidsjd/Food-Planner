@@ -22,7 +22,7 @@ import Carbs from '../../../assets/Group 1.svg'
 import Fats from '../../../assets/Group 2.svg'
 import Protein from '../../../assets/Group 3.svg'
 import Calories from '../../../assets/Group 4.svg'
-import './media.css';
+
 
 const MakroProgress = ({ draggedRecipes }) => {
   const [totalCalories, setTotalCalories] = useState(0);
