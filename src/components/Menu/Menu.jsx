@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   StyledContainer,
-  LogoContainer,
-  StyledLogo,
+  StyledHeader,
+  UserImg,
+  StyledImage,
+  UserDetails,
+  StyledTitle,
+  StyledName,
   StyledNav,
-  StyledNavbar,
-  StyledWrapper,
-  StyledWrapperOption,
+  StyledMenu,
+  StyledLinks,
   StyledItem,
   StyledIcon,
-  StyledText,
+  StyledSpan,
 } from "./styles";
 import { IoHomeSharp } from "react-icons/io5";
 import { FaCalendar, FaBook, FaRegStar } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
+import User from "../../assets/siuu.jpg";
 
 const Menu = () => {
   const [clicked, setClicked] = useState(false);
@@ -24,12 +28,19 @@ const Menu = () => {
 
   return (
     <StyledContainer>
-      <LogoContainer>
-        <StyledLogo />
-      </LogoContainer>
+      <StyledHeader>
+        <UserImg>
+          <StyledImage src={User} alt="user-image" />
+        </UserImg>
+        <UserDetails>
+          <StyledTitle>User</StyledTitle>
+          <StyledName>UserName</StyledName>
+        </UserDetails>
+      </StyledHeader>
       <StyledNav>
-        <StyledNavbar className={clicked ? "nav_active" : "navbar"}>
-          <StyledWrapper>
+        <StyledMenu>
+          <StyledTitle style={{ marginBottom: 10 }}>Menu</StyledTitle>
+          <StyledLinks>
             <StyledItem>
               <NavLink
                 to="/"
@@ -41,7 +52,7 @@ const Menu = () => {
                 <StyledIcon>
                   <IoHomeSharp />
                 </StyledIcon>
-                <StyledText>Home</StyledText>
+                <StyledSpan className="text">Home</StyledSpan>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -55,7 +66,7 @@ const Menu = () => {
                 <StyledIcon>
                   <FaCalendar />
                 </StyledIcon>
-                <StyledText>Meal Planner</StyledText>
+                <StyledSpan className="text">Meal Planner</StyledSpan>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -69,7 +80,7 @@ const Menu = () => {
                 <StyledIcon>
                   <FaBook />
                 </StyledIcon>
-                <StyledText>Cookbook</StyledText>
+                <StyledSpan className="text">Cookbook</StyledSpan>
               </NavLink>
             </StyledItem>
             <StyledItem>
@@ -83,43 +94,45 @@ const Menu = () => {
                 <StyledIcon>
                   <FaRegStar />
                 </StyledIcon>
-                <StyledText>Suggestions</StyledText>
+                <StyledSpan className="text">Suggestions</StyledSpan>
               </NavLink>
             </StyledItem>
-          </StyledWrapper>
-          <StyledWrapperOption>
+          </StyledLinks>
+        </StyledMenu>
+        <StyledMenu>
+          <StyledTitle style={{ marginBottom: 10 }}>Account</StyledTitle>
+          <StyledLinks>
             <StyledItem>
               <NavLink
                 to="/Settings"
                 activeClassName="active"
                 className={({ isActive }) =>
-                  isActive ? "link-active-bottom" : "link-bottom"
+                  isActive ? "link-active-option" : "link-option"
                 }
               >
                 <StyledIcon>
                   <CiSettings />
                 </StyledIcon>
-                <StyledText>Settings</StyledText>
+                <StyledSpan className="text">Settings</StyledSpan>
               </NavLink>
             </StyledItem>
-
             {/* To do zmiany jak zrobi się firebase i logowanie */}
             <StyledItem>
               <NavLink
                 to="/SignIn"
                 activeClassName="active"
                 className={({ isActive }) =>
-                  isActive ? "link-active-bottom" : "link-bottom"
+                  isActive ? "link-active-option" : "link-option"
                 }
               >
                 <StyledIcon>
                   <IoMdLogIn />
                 </StyledIcon>
-                <StyledText>Sign In</StyledText>
+                <StyledSpan className="text">Sign Out</StyledSpan>
               </NavLink>
             </StyledItem>
-          </StyledWrapperOption>
-        </StyledNavbar>
+          </StyledLinks>
+        </StyledMenu>
       </StyledNav>
     </StyledContainer>
   );

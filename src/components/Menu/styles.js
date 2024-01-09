@@ -4,84 +4,77 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const StyledContainer = styled("div")(({ theme }) => ({
-  background: '#FFFFFF',
+  width: "20%",
   minHeight: "100vh",
-  borderRadius: "0 40px 40px 0",
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "space-between",
-  position: "relative",
-  width: "20%",
-  margin: "0",
-  backdropFilter: "blur(9.3px)",
-    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+  gap: "20px",
+  background: globalTheme.palette.secondary.main,
+  padding: "24px",
+  borderRadius: "0 40px 40px 0",
 
+  // Responsywność - tablet
   [theme.breakpoints.down("lg")]: {
-    width: "17.5%",
-  },
-
-  [theme.breakpoints.down("md")]: {
-    width: "100%",
-    minHeight: "0vh",
-    height: "60px",
-    borderRadius: "0",
-    position: "fixed",
-    bottom: "0",
-    left: "0",
-    zIndex: theme.zIndex.drawer + 1,
+    width: "100px",
   },
 }));
 
-export const LogoContainer = styled(Link)(({ theme }) => ({
-  [theme.breakpoints.up("md")]: {
-    display: "flex",
-    marginTop: "40px",
-    justifyContent: "center",
-    alignItems: "center",
+export const StyledHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  gap: "20px",
+  paddingBottom: "20px",
+  borderBottom: "1px solid #f6f6f6",
+}));
+
+export const UserImg = styled("div")(({ theme }) => ({
+  width: "44px",
+  height: "44px",
+  borderRadius: "50%",
+  overflow: "hidden",
+}));
+
+export const StyledImage = styled("img")(({ theme }) => ({
+  width: "100%",
+  objectFit: "cover",
+}));
+
+export const UserDetails = styled("div")(({ theme }) => ({
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    display: "none",
   },
 }));
 
-export const StyledLogo = styled("div")(({ theme }) => ({
-  [theme.breakpoints.up("md")]: {
-    borderRadius: "100px",
-    width: "85px",
-    height: "85px",
-    background: "#2C0909",
+export const StyledTitle = styled("p")(({ theme }) => ({
+  fontSize: globalTheme.typography.secondary.main,
+  fontWeight: "500",
+  color: "#757575",
+  textTransform: "uppercase",
+
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    textAlign: "center",
   },
+}));
+
+export const StyledName = styled("p")(({ theme }) => ({
+  fontSize: globalTheme.typography.primary.main,
+  fontWeight: "500",
 }));
 
 export const StyledNav = styled("div")(({ theme }) => ({
-  [theme.breakpoints.up("lg")]: {
-    display: "flex",
-    width: "80%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  [theme.breakpoints.down("lg")]: {
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-    flexDirection: "column",
-  },
-}));
-
-export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
+  flex: 1,
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  height: "100%",
-  width: "100%",
   "& .link, & .link-active": {
     display: "flex",
-    padding: "10px 60px",
-    width: "100%",
-    height: "100%",
-    textDecoration: "none",
-    borderRadius: "20px",
     alignItems: "center",
-    justifyContent: "left",
+    gap: "10px",
+    fontWeight: "500",
+    textDecoration: "none",
+    padding: "12px 8px",
+    borderRadius: "20px",
+    transition: "all 0.3s",
     color: globalTheme.palette.textcolor.primary,
     fontSize: globalTheme.typography.subtitle.main,
     "&:hover, &.link-active": {
@@ -90,92 +83,109 @@ export const StyledNavbar = styled("div")(({ theme, clicked }) => ({
     },
   },
 
-  "& .link-bottom, & .link-active-bottom": {
+  "& .link-option, & .link-active-option": {
     display: "flex",
-    padding: "10px 60px",
-    width: "100%",
-    height: "100%",
-    textDecoration: "none",
-    borderRadius: "20px",
     alignItems: "center",
-    justifyContent: "left",
+    gap: "10px",
+    fontWeight: "500",
+    textDecoration: "none",
+    padding: "12px 8px",
+    borderRadius: "20px",
+    transition: "all 0.3s",
     color: globalTheme.palette.textcolor.primary,
     fontSize: globalTheme.typography.subtitle.main,
-    "&:hover, &.link-active-bottom": {
+    "&:hover, &.link-active-option": {
       background: globalTheme.palette.complementary.main,
+      color: globalTheme.palette.textcolor.primary,
     },
   },
 
+  // Responsywność - tablet
   [theme.breakpoints.down("lg")]: {
-    "& .link, & .link-active, & .link-bottom, & .link-active-bottom": {
-      width: "70px",
-      height: "70px",
-      borderRadius: "45%",
-      justifyContent: "center",
-    },
-  },
-  [theme.breakpoints.up("md")]: {
-    "& .link-active, & .link-active-bottom": {
-      boxShadow: "0px 0px 4px 4px rgba(231, 231, 231, 1)",
-    },
-  },
-  [theme.breakpoints.down("md")]: {
     "& .link, & .link-active": {
-      width: "24px",
-      height: "24px",
-      justifyContent: "space-betwen",
-      "&:hover, &.link-active": {
-        background: "none",
-        color: globalTheme.palette.primary.main,
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      "&:hover > .text": {
+        left: "40px",
+        opacity: "1",
+        visibility: "visible",
+      },
+    },
+
+    "& .link-option, & .link-active-option": {
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      "&:hover > .text": {
+        left: "40px",
+        opacity: "1",
+        visibility: "visible",
       },
     },
   },
 }));
 
-export const StyledWrapper = styled("section")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  width: "100%",
-  minHeight: "440px",
-  justifyContent: "center",
-  margin: "20px 0",
-  [theme.breakpoints.down("md")]: {
-    flexDirection: "row",
-    margin: "0px",
+export const StyledMenu = styled("div")(({ theme }) => ({
+  "&:last-child": {
+    marginTop: "auto",
   },
 }));
 
-export const StyledWrapperOption = styled("section")(({ theme }) => ({
-  display: "none",
-  [theme.breakpoints.up("md")]: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    justifyContent: "center",
-    margin: "20px 0",
-  },
-}));
+export const StyledLinks = styled("ul")(({ theme }) => ({}));
 
 export const StyledItem = styled("li")(({ theme }) => ({
-  listStyleType: "none",
-  display: "flex",
-  justifyContent: "center",
-  margin: "10px 0",
-  [theme.breakpoints.down("lg")]: {},
-}));
-
-export const StyledText = styled("p")(({ theme }) => ({
-  [theme.breakpoints.down("lg")]: {
-    display: "none",
-  },
+  listStyle: "none",
+  marginBottom: "5px",
+  padding: "0",
 }));
 
 export const StyledIcon = styled("i")(({ theme }) => ({
-  fontSize: globalTheme.typography.title.main,
-  padding: "5px",
+  fontSize: globalTheme.typography.subtitle.main,
   display: "flex",
   alignItems: "center",
-  [theme.breakpoints.down("md")]: {
-    fontSize: "32px",
+  marginLeft: "15px",
+
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    marginLeft: "0",
   },
 }));
+
+export const StyledSpan = styled("span")(({ theme }) => ({
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    position: "absolute",
+    left: "50px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    padding: "5px",
+    borderRadius: "4px",
+    color: globalTheme.palette.secondary.main,
+    background: globalTheme.palette.textcolor.primary,
+    opacity: "0",
+    visiblity: "hidden",
+    transition: "all 0.3s",
+    whiteSpace: "nowrap",
+
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      left: "-5px",
+      width: "20px",
+      height: "20px",
+      borderRadius: "2px",
+      background: globalTheme.palette.textcolor.primary,
+      transform: "rotate(45deg)",
+      zIndex: "-1",
+    },
+  },
+}));
+
+// export const StyledSpan = styled("span")(({ theme }) => ({}));
+
+// export const StyledSpan = styled("span")(({ theme }) => ({}));
+
+// export const StyledSpan = styled("span")(({ theme }) => ({}));
