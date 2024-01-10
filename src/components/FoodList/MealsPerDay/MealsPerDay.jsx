@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeneratedBox, DraggedRecipeName } from './style';
+import { GeneratedBox, DraggedRecipeName, MakroColumn, ParagraphException } from './style';
 
 const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
   return (
@@ -13,25 +13,27 @@ const MealsPerDay = ({ numberOfBoxes, draggedRecipes, onDrop }) => {
             onDragOver={(e) => e.preventDefault()}
             onDrop={() => onDrop(i)}
           >
-            Box {i + 1}
+            
             {draggedRecipe ? (
               draggedRecipe.caloriesValue !== undefined ? (
                 <DraggedRecipeName>
                   <img
                     src={draggedRecipe.thumbnail_url}
                     alt={draggedRecipe.name}
-                    style={{ width: '75px', objectFit: 'cover' }}
+                    
                   />
-                  <p>Calories: {draggedRecipe.caloriesValue}</p>
-                  <p>Fat: {draggedRecipe.fatValue}</p>
-                  <p>Carbohydrates: {draggedRecipe.carbohydratesValue}</p>
-                  <p>Protein: {draggedRecipe.proteinValue}</p>
+                  <MakroColumn>
+                    <p><span>Calories:</span> {draggedRecipe.caloriesValue}</p>
+                    <p><span>Fat:</span> {draggedRecipe.fatValue}</p>
+                    <p><span>Carbohydrates:</span> {draggedRecipe.carbohydratesValue}</p>
+                    <p><span>Protein:</span> {draggedRecipe.proteinValue}</p>
+                  </MakroColumn>
                 </DraggedRecipeName>
               ) : (
-                <p>No nutrition data available</p>
+                <ParagraphException>No nutrition data available</ParagraphException>
               )
             ) : (
-              <p>No recipe selected</p>
+              <ParagraphException>No recipe selected</ParagraphException>
             )}
           </GeneratedBox>
         );

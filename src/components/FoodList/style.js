@@ -40,12 +40,39 @@ export const BottomRightContainer = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'flex-end',
   marginTop: '10px',
-  // Dodaj dodatkowe style według potrzeb
+  "& input":{
+    border: 'none',
+    padding: '5px',
+    outline: 'none',
+    marginRight: '1em',
+    borderRadius: '5px'
+  },
 }));
 
 export const ScrollMealsContainer = styled('div')(({ theme }) => ({
-  width: '50%',
+  width: "50%",
   overflowY: 'auto',
-  margin: '5%',
-  // Dodaj dodatkowe style według potrzeb
+  margin: "5%",
+  paddingRight: '1em',
+  
+  "&::-webkit-scrollbar": {
+    width: '8px',
+  },
+  "&::-webkit-scrollbar-thumb": {
+    backgroundColor: 'rgba(34, 34, 34, 0.3)',
+    borderRadius: '4px',
+    
+    "&:hover": {
+      backgroundColor: 'rgba(34, 34, 34, 0.4)',
+    },
+  },
+  "&::-webkit-scrollbar-track": {
+    backgroundColor: 'rgba(34, 34, 34, 0.1)',
+  },
+  [theme.breakpoints.down("1510")]: {
+    width: "60%",
+  },
+  [theme.breakpoints.down("1267")]: {
+    width: "70%",
+  },
 }));
