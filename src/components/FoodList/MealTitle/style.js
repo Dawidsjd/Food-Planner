@@ -18,16 +18,25 @@ export const ContentContainer = styled('div')({
     margin: '2em'
 });
 
-export const PlanParagraph = styled('p')({
-  fontSize: '1.5em'
-});
+export const PlanParagraph = styled('p')(({ theme }) => ({
+  fontSize: '1.5em',
+  
 
-export const MealHeading = styled('h1')({
+  [theme.breakpoints.down("1433")]: {
+    fontSize: '1em',
+  },
+}));
+
+export const MealHeading = styled('h1')(({ theme }) => ({
     
-    fontSize: '2.5em'
-});
+    fontSize: '2.5em',
 
-export const DateContainer = styled('div')({
+    [theme.breakpoints.down("1433")]: {
+      fontSize: '1.5em',
+    },
+  }));
+
+export const DateContainer = styled('p')(({ theme }) => ({
     marginLeft: '2em',
     marginTop: '-1em',
   width: '40%',
@@ -37,13 +46,25 @@ export const DateContainer = styled('div')({
   borderRadius: '10px',
   padding: '1em',
   "& p:nth-child(1)": {
-    color: '#6A8D73'
+    color: '#6A8D73',
+
+    [theme.breakpoints.down("1433")]: {
+      fontSize: '0.6em',
+    },
+    
   },
   "& p:nth-child(2)": {
     display: 'flex',
     marginTop: '0.5em',
     color: '#6A8D73',
     fontSize: '1.5em',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+
+    [theme.breakpoints.down("1433")]: {
+      fontSize: '0.7em',
+    },
   },
-});
+  [theme.breakpoints.down("1433")]: {
+    marginTop: '-1.6em'
+  },
+}));
