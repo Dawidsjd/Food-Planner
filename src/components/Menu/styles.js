@@ -5,17 +5,31 @@ import { Link } from "react-router-dom";
 
 export const StyledContainer = styled("div")(({ theme }) => ({
   width: "20%",
-  minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
   gap: "20px",
   background: globalTheme.palette.secondary.main,
   padding: "24px",
   borderRadius: "0 40px 40px 0",
+  [theme.breakpoints.up("md")]: {
+    minHeight: "100vh",
+  },
 
   // Responsywność - tablet
   [theme.breakpoints.down("lg")]: {
     width: "100px",
+  },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+    height: "70px",
+    borderRadius: "0",
+    padding: "0",
+    zIndex: 999,
+    boxShadow: "1px 0px 8px rgba(0, 0, 0, 0.25)",
   },
 }));
 
@@ -24,6 +38,10 @@ export const StyledHeader = styled("div")(({ theme }) => ({
   gap: "20px",
   paddingBottom: "20px",
   borderBottom: "1px solid #f6f6f6",
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 }));
 
 export const UserImg = styled("div")(({ theme }) => ({
@@ -31,6 +49,11 @@ export const UserImg = styled("div")(({ theme }) => ({
   height: "44px",
   borderRadius: "50%",
   overflow: "hidden",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 }));
 
 export const StyledImage = styled("img")(({ theme }) => ({
@@ -54,6 +77,11 @@ export const StyledTitle = styled("p")(({ theme }) => ({
   // Responsywność - tablet
   [theme.breakpoints.down("lg")]: {
     textAlign: "center",
+  },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    display: "none",
   },
 }));
 
@@ -126,15 +154,45 @@ export const StyledNav = styled("div")(({ theme }) => ({
       },
     },
   },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    "& .link, & .link-active": {
+      "&:hover, &.link-active": {
+        background: "none",
+        color: globalTheme.palette.primary.main,
+      },
+    },
+  },
 }));
 
 export const StyledMenu = styled("div")(({ theme }) => ({
   "&:last-child": {
     marginTop: "auto",
   },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    "&:last-child": {
+      display: "none",
+    },
+  },
 }));
 
-export const StyledLinks = styled("ul")(({ theme }) => ({}));
+export const StyledLinks = styled("ul")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+
+  //Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingTop: 10,
+    paddingBottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+}));
 
 export const StyledItem = styled("li")(({ theme }) => ({
   listStyle: "none",
@@ -151,6 +209,11 @@ export const StyledIcon = styled("i")(({ theme }) => ({
   // Responsywność - tablet
   [theme.breakpoints.down("lg")]: {
     marginLeft: "0",
+  },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    fontSize: "30px",
   },
 }));
 
@@ -182,10 +245,8 @@ export const StyledSpan = styled("span")(({ theme }) => ({
       zIndex: "-1",
     },
   },
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
 }));
-
-// export const StyledSpan = styled("span")(({ theme }) => ({}));
-
-// export const StyledSpan = styled("span")(({ theme }) => ({}));
-
-// export const StyledSpan = styled("span")(({ theme }) => ({}));
