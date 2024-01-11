@@ -27,7 +27,7 @@ export const StyledIcon = styled("button")(({ theme }) => ({}));
 
 export const StyledSpan = styled("span")(({ theme }) => ({}));
 
-// export const StyledContainer = styled("div")(({ theme }) => ({}));
+export const StyledInput = styled("input")(({ theme }) => ({}));
 
 // export const StyledContainer = styled("div")(({ theme }) => ({}));
 

@@ -7,6 +7,7 @@ import {
   StyledSocialIcons,
   StyledIcon,
   StyledSpan,
+  StyledInput,
 } from "./styles";
 import { FaFacebookF, FaGoogle, FaApple } from "react-icons/fa";
 
@@ -38,6 +39,7 @@ const LoginPage = () => {
                 ? "or use your email account"
                 : "or use your email for registraion"}
             </StyledSpan>
+            <StyledInput type="email" placeholder="Email" />
           </StyledTypography>
         </FormContainer>
       </LoginContainer>
@@ -223,7 +225,7 @@ export default LoginPage;
 //         </StyledSocialIcons>
 //         <StyledSpan>{isSignIn ? 'or use your email and password' : 'or use your email for registration'}</StyledSpan>
 //         {!isSignIn && <StyledInput type="text" placeholder="Name" />}
-//         <StyledInput type="email" placeholder="Email" />
+// <StyledInput type="email" placeholder="Email" />
 //         <StyledInput type="password" placeholder="Password" />
 //         {!isSignIn && <StyledButton>Sign Up</StyledButton>}
 //         {isSignIn && <StyledLink href="#">Forgot Your Password?</StyledLink>}
