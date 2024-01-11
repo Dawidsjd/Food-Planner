@@ -19,22 +19,22 @@ import {
 import { FaFacebookF, FaGoogle, FaApple } from "react-icons/fa";
 import { styled } from "@mui/system";
 
-const moveKeyframes = styled.keyframes({
-  "0%, 49.99%": {
-    opacity: "0",
-    zIndex: "1",
-  },
-  "50%, 100%": {
-    opacity: "1",
-    zIndex: "5",
-  },
-});
+// const moveKeyframes = styled.keyframes({
+//   "0%, 49.99%": {
+//     opacity: "0",
+//     zIndex: "1",
+//   },
+//   "50%, 100%": {
+//     opacity: "1",
+//     zIndex: "5",
+//   },
+// });
 
-StyledAnimation.defaultProps = {
-  css: {
-    animation: `${moveKeyframes} 0.6s`,
-  },
-};
+// StyledAnimation.defaultProps = {
+//   css: {
+//     animation: `${moveKeyframes} 0.6s`,
+//   },
+// };
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
