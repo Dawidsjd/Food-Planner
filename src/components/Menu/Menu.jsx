@@ -119,7 +119,7 @@ const Menu = () => {
             {/* To do zmiany jak zrobi się firebase i logowanie */}
             <StyledItem>
               <NavLink
-                to="/SignIn"
+                to="/LoginPage"
                 activeClassName="active"
                 className={({ isActive }) =>
                   isActive ? "link-active-option" : "link-option"

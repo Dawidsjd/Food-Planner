@@ -8,8 +8,7 @@ import Suggestions from "./components/pages/Suggestions/Suggestions.jsx";
 import Settings from "./components/pages/Settings/Settings.jsx";
 import Account from "./components/pages/Settings/Account/Account.jsx";
 import Appearance from "./components/pages/Settings/Appearance/Appearance.jsx";
-import SignIn from "./components/pages/LoginPage/SignIn/SignIn.jsx";
-import SignUp from "./components/pages/LoginPage/SignUp/SignUp.jsx";
+import LoginPage from "./components/pages/LoginPage/LoginPage.jsx";
 /***************************/
 import FoodList from "./components/FoodList/FoodList";
 import Menu from "./components/Menu/Menu";
@@ -42,8 +41,7 @@ function App() {
           <Route exact path="/Settings" element={<Settings />} />
           <Route exact path="/Settings/Account" element={<Account />} />
           <Route exact path="/Settings/Appearance" element={<Appearance />} />
-          <Route exact path="/SignIn" element={<SignIn />} />
-          <Route exact path="/SignUp" element={<SignUp />} />
+          <Route exact path="/LoginPage" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
