@@ -8,8 +8,33 @@ import {
   StyledIcon,
   StyledSpan,
   StyledInput,
+  StyledButton,
+  StyledToggleButton,
+  StyledLink,
+  StyledToggleContainer,
+  StyledToggle,
+  StyledTogglePanel,
+  StyledAnimation,
 } from "./styles";
 import { FaFacebookF, FaGoogle, FaApple } from "react-icons/fa";
+import { styled } from "@mui/system";
+
+const moveKeyframes = styled.keyframes({
+  "0%, 49.99%": {
+    opacity: "0",
+    zIndex: "1",
+  },
+  "50%, 100%": {
+    opacity: "1",
+    zIndex: "5",
+  },
+});
+
+StyledAnimation.defaultProps = {
+  css: {
+    animation: `${moveKeyframes} 0.6s`,
+  },
+};
 
 const LoginPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -23,25 +48,61 @@ const LoginPage = () => {
         <FormContainer>
           <StyledTypography>
             {isSignIn ? "Sign In" : "Create Account"}{" "}
-            <StyledSocialIcons>
-              <StyledIcon>
-                <FaFacebookF />
-              </StyledIcon>
-              <StyledIcon>
-                <FaGoogle />
-              </StyledIcon>
-              <StyledIcon>
-                <FaApple />
-              </StyledIcon>
-            </StyledSocialIcons>
-            <StyledSpan>
-              {isSignIn
-                ? "or use your email account"
-                : "or use your email for registraion"}
-            </StyledSpan>
-            <StyledInput type="email" placeholder="Email" />
           </StyledTypography>
+          <StyledSocialIcons>
+            <StyledIcon>
+              <FaFacebookF />
+            </StyledIcon>
+            <StyledIcon>
+              <FaGoogle />
+            </StyledIcon>
+            <StyledIcon>
+              <FaApple />
+            </StyledIcon>
+          </StyledSocialIcons>
+          <StyledSpan>
+            {isSignIn
+              ? "or use your email account"
+              : "or use your email for registraion"}
+          </StyledSpan>
+          {!isSignIn && <StyledInput type="text" placeholder="Username" />}
+          <StyledInput type="email" placeholder="Email" />
+          <StyledInput type="password" placeholder="Password" />
+          {!isSignIn && <StyledButton>Sign Up</StyledButton>}
+          {isSignIn && <StyledLink href="#">Forgot Your Password?</StyledLink>}
+          <StyledButton
+            onClick={handleToggleClick}
+            className={isSignIn ? "hidden" : ""}
+          >
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </StyledButton>
         </FormContainer>
+        <StyledToggleContainer>
+          <StyledToggle>
+            <StyledTogglePanel
+              className={`toggle-left ${isSignIn ? "hidden" : ""}`}
+            >
+              <StyledTypography>Welcome Back!</StyledTypography>
+              <StyledTypography>
+                Enter your personal details to use all site features
+              </StyledTypography>
+              <StyledToggleButton id="login" className="hidden">
+                Sign In
+              </StyledToggleButton>
+            </StyledTogglePanel>
+            <StyledTogglePanel
+              className={`toggle-right ${isSignIn ? "" : "hidden"}`}
+            >
+              <StyledTypography variant="h1">Hello, Friend!</StyledTypography>
+              <StyledTypography>
+                Register with your personal details to use all site features
+              </StyledTypography>
+              <StyledAnimation className={`hidden ${isSignIn ? "hidden" : ""}`}>
+                <StyledToggleButton id="register">Sign Up</StyledToggleButton>
+              </StyledAnimation>
+            </StyledTogglePanel>
+          </StyledToggle>
+        </StyledToggleContainer>
       </LoginContainer>
     </StyledContainer>
   );
@@ -189,23 +250,6 @@ export default LoginPage;
 //   animation: '$move 0.6s',
 // });
 
-// const moveKeyframes = styled.keyframes({
-//   '0%, 49.99%': {
-//     opacity: '0',
-//     zIndex: '1',
-//   },
-//   '50%, 100%': {
-//     opacity: '1',
-//     zIndex: '5',
-//   },
-// });
-
-// StyledAnimation.defaultProps = {
-//   css: {
-//     animation: `${moveKeyframes} 0.6s`,
-//   },
-// };
-
 // const ModernLoginPage = () => {
 //   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -233,24 +277,7 @@ export default LoginPage;
 //           {isSignIn ? 'Sign In' : 'Sign Up'}
 //         </StyledButton>
 //       </StyledForm>
-//       <StyledToggleContainer>
-//         <StyledToggle>
-//           <StyledTogglePanel className={`toggle-left ${isSignIn ? 'hidden' : ''}`}>
-//             <StyledTypography variant="h1">Welcome Back!</StyledTypography>
-//             <StyledTypography>Enter your personal details to use all site features</StyledTypography>
-//             <StyledButton id="login" className="hidden">
-//               Sign In
-//             </StyledButton>
-//           </StyledTogglePanel>
-//           <StyledTogglePanel className={`toggle-right ${isSignIn ? '' : 'hidden'}`}>
-//             <StyledTypography variant="h1">Hello, Friend!</StyledTypography>
-//             <StyledTypography>Register with your personal details to use all site features</StyledTypography>
-//             <StyledAnimation className={`hidden ${isSignIn ? 'hidden' : ''}`}>
-//               <StyledButton id="register">Sign Up</StyledButton>
-//             </StyledAnimation>
-//           </StyledTogglePanel>
-//         </StyledToggle>
-//       </StyledToggleContainer>
+
 //     </StyledContainer>
 //   );
 // };
