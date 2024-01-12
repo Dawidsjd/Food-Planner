@@ -42,6 +42,10 @@ export const FormContainer = styled("form")(({ theme }) => ({
   padding: "0 40px",
   height: "100%",
   width: "50%",
+  position: "absolute",
+  top: "0",
+  left: "50%",
+  transition: "left 0.6s ease",
 }));
 
 export const StyledTypography = styled("h1")(({ theme }) => ({
@@ -134,7 +138,7 @@ export const StyledToggleContainer = styled("div")(({ theme }) => ({
   width: "50%",
   height: "100%",
   overflow: "hidden",
-  transition: "all 0.6s ease-in-out",
+  transition: "left 0.6s ease",
   zIndex: "1000",
 }));
 
@@ -143,8 +147,6 @@ export const StyledToggle = styled("div")(({ theme }) => ({
   color: "#fff",
   position: "relative",
   width: "200%",
-  transform: "translateX(0)",
-  transition: "all 0.6s ease-in-out",
 }));
 
 export const StyledTogglePanel = styled("div")(({ theme }) => ({
@@ -162,6 +164,6 @@ export const StyledTogglePanel = styled("div")(({ theme }) => ({
   transition: "all 0.6s ease-in-out",
   "& .ToggleText": {
     color: globalTheme.palette.secondary.main,
-    marginBottom: "15px", // Dodany odstęp między StyledTypography a resztą elementów
+    marginBottom: "15px",
   },
 }));

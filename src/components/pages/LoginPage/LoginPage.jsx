@@ -26,7 +26,7 @@ const Login = () => {
   return (
     <StyledContainer>
       <LoginContainer>
-        <FormContainer>
+        <FormContainer style={{ left: isSignIn ? "0" : "50%" }}>
           <StyledTypography>
             {isSignIn ? "Sign In" : "Create Account"}
           </StyledTypography>
@@ -53,11 +53,11 @@ const Login = () => {
           {isSignIn && <StyledLink href="#">Forgot Your Password?</StyledLink>}
           {isSignIn && <StyledButton>Sign In</StyledButton>}
         </FormContainer>
-        <StyledToggleContainer>
+        <StyledToggleContainer style={{ left: isSignIn ? "50%" : "0" }}>
           <StyledToggle>
             <StyledTogglePanel>
               <StyledTypography className="ToggleText">
-                {!isSignIn ? "Welcome Back!" : "Hello, Friend"}
+                {!isSignIn ? "Welcome Back!" : "New here?"}
               </StyledTypography>
               <StyledSpan className="ToggleText">
                 {!isSignIn
