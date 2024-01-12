@@ -56,31 +56,17 @@ const Login = () => {
         <StyledToggleContainer>
           <StyledToggle>
             <StyledTogglePanel>
-              {!isSignIn ? (
-                <>
-                  <StyledTypography className="ToggleText">
-                    Welcome Back!
-                  </StyledTypography>
-                  <StyledSpan className="ToggleText">
-                    Enter your personal details to use all site features
-                  </StyledSpan>
-                  <StyledButton className="hidden" onClick={handleToggleClick}>
-                    Sign In
-                  </StyledButton>
-                </>
-              ) : (
-                <>
-                  <StyledTypography className="ToggleText">
-                    Hello, Friend!
-                  </StyledTypography>
-                  <StyledSpan className="ToggleText">
-                    Register with your personal details to use all site features
-                  </StyledSpan>
-                  <StyledButton className="hidden" onClick={handleToggleClick}>
-                    Sign Up
-                  </StyledButton>
-                </>
-              )}
+              <StyledTypography className="ToggleText">
+                {!isSignIn ? "Welcome Back!" : "Hello, Friend"}
+              </StyledTypography>
+              <StyledSpan className="ToggleText">
+                {!isSignIn
+                  ? "Enter your personal details to use all site features"
+                  : "Register with your personal details to use all site features"}
+              </StyledSpan>
+              <StyledButton className="hidden" onClick={handleToggleClick}>
+                {!isSignIn ? "Sign In" : "Sign Up"}
+              </StyledButton>
             </StyledTogglePanel>
           </StyledToggle>
         </StyledToggleContainer>
