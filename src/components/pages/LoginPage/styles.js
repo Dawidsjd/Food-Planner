@@ -1,6 +1,7 @@
 import globalTheme from "../../../globalTheme/globalTheme";
 import { styled } from "@mui/system";
 import Background from "../../../assets/background.svg";
+import BackgroundSection from "../../../assets/backgroundSection.svg";
 
 export const StyledContainer = styled("div")(({ theme }) => ({
   backgroundImage: `url(${Background})`,
@@ -23,11 +24,11 @@ export const LoginContainer = styled("div")(({ theme }) => ({
   overflow: "hidden",
   width: "1200px",
   maxWidth: "100%",
-  minHeight: "520px",
+  minHeight: "550px",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "column",
+  justifyContent: "space-between",
+  flexDirection: "row",
   padding: "20px",
   margin: "20px auto",
 }));
@@ -40,15 +41,41 @@ export const FormContainer = styled("form")(({ theme }) => ({
   flexDirection: "column",
   padding: "0 40px",
   height: "100%",
+  width: "50%",
 }));
 
-export const StyledTypography = styled("h1")(({ theme }) => ({}));
+export const StyledTypography = styled("h1")(({ theme }) => ({
+  fontSize: globalTheme.typography.title.main,
+  color: globalTheme.palette.primary.main,
+  lineHeight: "20px",
+  letterSpacing: "0.3px",
+  margin: "10px 0",
+}));
 
-export const StyledSocialIcons = styled("div")(({ theme }) => ({}));
+export const StyledSocialIcons = styled("div")(({ theme }) => ({
+  margin: "20px 0",
+}));
 
-export const StyledIcon = styled("button")(({ theme }) => ({}));
+export const StyledIcon = styled("button")(({ theme }) => ({
+  border: "1px solid #000",
+  cursor: "pointer",
+  background: "none",
+  borderRadius: "50%",
+  display: "inline-flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "0 8px",
+  width: "50px",
+  height: "50px",
+  "&:hover": {
+    background: "#000",
+    color: globalTheme.palette.secondary.main,
+  },
+}));
 
-export const StyledSpan = styled("span")(({ theme }) => ({}));
+export const StyledSpan = styled("span")(({ theme }) => ({
+  fontSize: globalTheme.typography.secondary.main,
+}));
 
 export const StyledInput = styled("input")(({ theme }) => ({
   background: globalTheme.palette.complementary.main,
@@ -57,44 +84,82 @@ export const StyledInput = styled("input")(({ theme }) => ({
   padding: "10px 15px",
   fontSize: globalTheme.typography.secondary.main,
   borderRadius: "8px",
-  width: "100%",
+  width: "70%",
   outline: "none",
 }));
 
 export const StyledButton = styled("button")(({ theme }) => ({
   background: globalTheme.palette.primary.main,
   color: globalTheme.palette.secondary.main,
-}));
-
-export const StyledToggleButton = styled("button")(({ theme }) => ({
-  background: "none",
-  // border: "1px solid #fff",
-}));
-
-export const StyledLink = styled("a")(({ theme }) => ({}));
-
-export const StyledToggleContainer = styled("div")(({ theme }) => ({}));
-
-export const StyledToggle = styled("div")(({ theme }) => ({}));
-
-export const StyledTogglePanel = styled("div")(({ theme }) => ({}));
-
-export const StyledAnimation = styled("div")(({ theme }) => ({
+  fontSize: globalTheme.typography.secondary.main,
+  padding: "10px 45px",
+  border: "1px solid transparent",
+  borderRadius: "15px",
+  fontWeight: "600",
+  letterSpacing: "0.5px",
+  textTransform: "uppercase",
+  marginTop: "10px",
+  cursor: "pointer",
+  "&:hover": {
+    background: "transparent",
+    borderColor: globalTheme.palette.primary.main,
+    color: globalTheme.palette.primary.main,
+  },
   "&.hidden": {
-    opacity: "0",
-    zIndex: "1",
+    background: "transparent",
+    borderColor: globalTheme.palette.secondary.main,
+    "&:hover": {
+      background: globalTheme.palette.secondary.main,
+    },
   },
-  "&:not(.hidden)": {
-    opacity: "1",
-    zIndex: "5",
-  },
-  animation: "$move 0.6s",
 }));
 
-// export const StyledContainer = styled("div")(({ theme }) => ({}));
+export const StyledLink = styled("a")(({ theme }) => ({
+  color: "#333",
+  fontSize: "13px",
+  textDecoration: "none",
+  margin: "15px 0 10px",
+}));
 
-// export const StyledContainer = styled("div")(({ theme }) => ({}));
+export const StyledToggleContainer = styled("div")(({ theme }) => ({
+  backgroundImage: `url(${BackgroundSection})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  position: "absolute",
+  top: "0",
+  right: "0",
+  width: "50%",
+  height: "100%",
+  overflow: "hidden",
+  transition: "all 0.6s ease-in-out",
+  zIndex: "1000",
+}));
 
-// export const StyledContainer = styled("div")(({ theme }) => ({}));
+export const StyledToggle = styled("div")(({ theme }) => ({
+  height: "100%",
+  color: "#fff",
+  position: "relative",
+  width: "200%",
+  transform: "translateX(0)",
+  transition: "all 0.6s ease-in-out",
+}));
 
-// export const StyledContainer = styled("div")(({ theme }) => ({}));
+export const StyledTogglePanel = styled("div")(({ theme }) => ({
+  position: "absolute",
+  width: "50%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  padding: "0 30px",
+  textAlign: "center",
+  top: "0",
+  transform: "translateX(0)",
+  transition: "all 0.6s ease-in-out",
+  "& .ToggleText": {
+    color: globalTheme.palette.secondary.main,
+    marginBottom: "15px", // Dodany odstęp między StyledTypography a resztą elementów
+  },
+}));
