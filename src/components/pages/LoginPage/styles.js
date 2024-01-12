@@ -50,6 +50,7 @@ export const StyledTypography = styled("h1")(({ theme }) => ({
   lineHeight: "20px",
   letterSpacing: "0.3px",
   margin: "10px 0",
+  textAlign: "center",
 }));
 
 export const StyledSocialIcons = styled("div")(({ theme }) => ({
@@ -75,6 +76,7 @@ export const StyledIcon = styled("button")(({ theme }) => ({
 
 export const StyledSpan = styled("span")(({ theme }) => ({
   fontSize: globalTheme.typography.secondary.main,
+  textAlign: "center",
 }));
 
 export const StyledInput = styled("input")(({ theme }) => ({
