@@ -28,5 +28,9 @@ export const IconContainer = styled('div')(({ theme }) => ({
   top: "0",
   right: "0",
   padding: "5px",
-  transform: 'scale(0.8)'
+  transform: 'scale(0.8)',
+  "& img": {
+    borderRadius: '50px',
+    boxShadow: '0 0 15px rgba(1,1,1,0.4)'
+  }
   }));

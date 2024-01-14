@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from 'better-react-carousel';
-import Icon from '../../../assets/unfavourite.svg'
+import Icon from '../../../assets/unfavourite.svg';
+import IconFav from '../../../assets/favourite.svg';
 
 import style, { CarouselCon, Divv, IconContainer } from './styles';
 import './keyframe.css';
 
 const FoodCarousel = () => {
   const [recipes, setRecipes] = useState([]);
+  const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +35,14 @@ const FoodCarousel = () => {
     fetchData();
   }, []);
 
+  const handleIconHover = (index) => {
+    setHoveredImageIndex(index);
+  };
+
+  const handleIconLeave = () => {
+    setHoveredImageIndex(null);
+  };
+
   return (
     <Carousel
       cols={4}
@@ -42,7 +52,7 @@ const FoodCarousel = () => {
       showDots
       responsiveLayout={[{ breakpoint: 800, cols: 3 }]}
     >
-      {recipes.map((recipe) => (
+      {recipes.map((recipe, index) => (
         <Carousel.Item key={recipe.id}>
           <Divv>
             <img
@@ -53,9 +63,11 @@ const FoodCarousel = () => {
             <p className={recipe.thumbnail_url && recipe.thumbnail_url.length > 200 ? 'animated-text' : ''}>
               {recipe.name}
             </p>
-            
-            <IconContainer>
-              <img src={Icon} alt="" />
+            <IconContainer
+              onMouseEnter={() => handleIconHover(index)}
+              onMouseLeave={handleIconLeave}
+            >
+              <img src={hoveredImageIndex === index ? IconFav : Icon} alt="" />
             </IconContainer>
           </Divv>
         </Carousel.Item>
