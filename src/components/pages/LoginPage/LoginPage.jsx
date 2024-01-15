@@ -4,6 +4,7 @@ import {
   StyledContainer,
   LoginContainer,
   FormContainer,
+  StyledHeader,
   StyledTypography,
   StyledSocialIcons,
   StyledIcon,
@@ -15,18 +16,34 @@ import {
   StyledToggle,
   StyledTogglePanel,
 } from "./styles";
+import Logo from "../../../assets/logo.png";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
 
-  const handleToggleClick = () => {
-    setIsSignIn(!isSignIn);
+  const handleToggleClick = (event) => {
+    event.preventDefault(); // Prevents the default behavior of the button
+
+    setIsSignIn((prevIsSignIn) => !prevIsSignIn);
   };
 
   return (
     <StyledContainer>
       <LoginContainer>
-        <FormContainer style={{ left: isSignIn ? "0" : "40%" }}>
+        <FormContainer isSignIn={isSignIn}>
+          <StyledHeader isSignIn={isSignIn}>
+            <div>
+              <img src={Logo} className="logo" />
+            </div>
+            <div>
+              <button
+                className="toggleBtn"
+                onClick={(e) => handleToggleClick(e)}
+              >
+                {!isSignIn ? "Sign In" : "Sign Up"}
+              </button>
+            </div>
+          </StyledHeader>
           <StyledTypography>
             {isSignIn ? "Sign In" : "Create Account"}
           </StyledTypography>
@@ -53,7 +70,7 @@ const Login = () => {
           {isSignIn && <StyledLink href="#">Forgot Your Password?</StyledLink>}
           {isSignIn && <StyledButton>Sign In</StyledButton>}
         </FormContainer>
-        <StyledToggleContainer style={{ left: isSignIn ? "60%" : "0" }}>
+        <StyledToggleContainer isSignIn={isSignIn}>
           <StyledToggle>
             <StyledTogglePanel>
               <StyledTypography className="ToggleText">

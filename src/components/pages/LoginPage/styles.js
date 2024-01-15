@@ -31,9 +31,14 @@ export const LoginContainer = styled("div")(({ theme }) => ({
   flexDirection: "row",
   padding: "20px",
   margin: "20px auto",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "80%",
+  },
 }));
 
-export const FormContainer = styled("form")(({ theme }) => ({
+export const FormContainer = styled("form")(({ theme, isSignIn }) => ({
   background: globalTheme.palette.secondary.main,
   display: "flex",
   alignItems: "center",
@@ -41,11 +46,20 @@ export const FormContainer = styled("form")(({ theme }) => ({
   flexDirection: "column",
   padding: "0 40px",
   height: "100%",
-  width: "60%",
   position: "absolute",
   top: "0",
-  left: "50%",
   transition: "left 0.6s ease",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    left: "0",
+  },
+
+  [theme.breakpoints.up("md")]: {
+    width: "60%",
+    left: isSignIn ? "0" : "40%",
+  },
 }));
 
 export const StyledTypography = styled("h1")(({ theme }) => ({
@@ -127,7 +141,7 @@ export const StyledLink = styled("a")(({ theme }) => ({
   margin: "15px 0 10px",
 }));
 
-export const StyledToggleContainer = styled("div")(({ theme }) => ({
+export const StyledToggleContainer = styled("div")(({ theme, isSignIn }) => ({
   backgroundImage: `url(${BackgroundSection})`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
@@ -135,11 +149,21 @@ export const StyledToggleContainer = styled("div")(({ theme }) => ({
   position: "absolute",
   top: "0",
   right: "0",
-  width: "40%",
+
   height: "100%",
   overflow: "hidden",
   transition: "left 0.6s ease",
   zIndex: "1000",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    display: "none",
+  },
+
+  [theme.breakpoints.up("md")]: {
+    width: "40%",
+    left: isSignIn ? "60%" : "0",
+  },
 }));
 
 export const StyledToggle = styled("div")(({ theme }) => ({
@@ -165,5 +189,32 @@ export const StyledTogglePanel = styled("div")(({ theme }) => ({
   "& .ToggleText": {
     color: globalTheme.palette.secondary.main,
     marginBottom: "15px",
+  },
+}));
+
+export const StyledHeader = styled("div")(({ theme, isSignIn }) => ({
+  width: "110%",
+  marginTop: "-80px",
+  border: "1px solid black",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  flexDirection: isSignIn ? "row" : "row-reverse",
+  transition: "all 0.6s ease",
+
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "row",
+  },
+
+  "& .logo": {
+    width: "64px",
+  },
+
+  "& .toggleBtn": {
+    display: "none",
+    // Responsywność - telefon
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
   },
 }));
