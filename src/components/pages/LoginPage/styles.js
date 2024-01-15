@@ -32,6 +32,11 @@ export const LoginContainer = styled("div")(({ theme }) => ({
   padding: "20px",
   margin: "20px auto",
 
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    width: "90%",
+  },
+
   // Responsywność - telefon
   [theme.breakpoints.down("md")]: {
     width: "80%",
@@ -73,6 +78,11 @@ export const StyledTypography = styled("h1")(({ theme }) => ({
 
 export const StyledSocialIcons = styled("div")(({ theme }) => ({
   margin: "20px 0",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    margin: "3px 0",
+  },
 }));
 
 export const StyledIcon = styled("button")(({ theme }) => ({
@@ -90,6 +100,12 @@ export const StyledIcon = styled("button")(({ theme }) => ({
     background: "#000",
     color: globalTheme.palette.secondary.main,
   },
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "32px",
+    height: "32px",
+  },
 }));
 
 export const StyledSpan = styled("span")(({ theme }) => ({
@@ -106,6 +122,11 @@ export const StyledInput = styled("input")(({ theme }) => ({
   borderRadius: "8px",
   width: "70%",
   outline: "none",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "85%",
+  },
 }));
 
 export const StyledButton = styled("button")(({ theme }) => ({
@@ -193,9 +214,9 @@ export const StyledTogglePanel = styled("div")(({ theme }) => ({
 }));
 
 export const StyledHeader = styled("div")(({ theme, isSignIn }) => ({
-  width: "110%",
-  marginTop: "-80px",
-  border: "1px solid black",
+  width: "90%",
+  top: "10px",
+  position: "absolute",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -208,13 +229,24 @@ export const StyledHeader = styled("div")(({ theme, isSignIn }) => ({
 
   "& .logo": {
     width: "64px",
+    pointerEvents: "none",
+    userSelect: "none",
   },
 
   "& .toggleBtn": {
     display: "none",
+    marginRight: "5px",
+
     // Responsywność - telefon
     [theme.breakpoints.down("md")]: {
       display: "block",
+      border: "none",
+      background: "transparent",
+      color: globalTheme.palette.primary.main,
+      fontSize: globalTheme.typography.button.main,
+      "&:hover, & .toggleBtn": {
+        color: "#000",
+      },
     },
   },
 }));
