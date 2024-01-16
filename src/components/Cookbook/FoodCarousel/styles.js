@@ -86,6 +86,10 @@ export const IconContainer = styled('div')(({ theme }) => ({
     "&::-webkit-scrollbar-track": {
       backgroundColor: 'rgba(34, 34, 34, 0.1)',
     },
+
+    [theme.breakpoints.up("1526")]: {
+      justifyContent: 'center'
+    },
   }));
 
   export const CategorieElement = styled('div')(({ theme }) => ({
@@ -99,4 +103,9 @@ export const IconContainer = styled('div')(({ theme }) => ({
     marginLeft: '5%',
     marginBottom: '10px',
     borderRadius: '15px',
+  
+    ":last-child": {
+      marginRight: '5%',
+    },
   }));
+  
