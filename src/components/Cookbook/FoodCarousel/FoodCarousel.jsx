@@ -17,6 +17,7 @@ import Button from '@mui/material/Button';
 import style, { CarouselCon, CarouselTitle, CategorieContainer, CategorieElement, CategorieTitle, Divv, IconContainer, SearchCookBook } from './styles';
 import './keyframe.css';
 import { Search } from '@mui/icons-material';
+import { Card, CardContent, CardMedia } from '@mui/material';
 
 const categoriesData = [
   { id: 1, name: 'Breakfast', image: Breakfast },
@@ -34,6 +35,7 @@ const FoodCarousel = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
+  const [dialogRecipes, setDialogRecipes] = useState([]);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -90,8 +92,28 @@ const FoodCarousel = () => {
     containerRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = async (category) => {
     setSelectedCategory(category);
+
+    // Fetch recipes for the selected category
+    const url = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=${category.name.toLowerCase()}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'b459219d15mshc4c14541f610567p1c8df9jsn45d71054de0a',
+        'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      setDialogRecipes(data.results);
+    } catch (error) {
+      console.error('Error fetching recipes for category:', error);
+      setDialogRecipes([]);
+    }
+
     setOpenDialog(true);
   };
 
@@ -101,85 +123,92 @@ const FoodCarousel = () => {
 
   return (
     <>
-    <SearchCookBook>
-      <Search></Search>
-      <input type="text" placeholder='What do you want to cook today?' />
-    </SearchCookBook>
-    <CarouselTitle>
-      <h2>All Recipes</h2>
-      <p>All recipes available in the Cookbook</p>
-    </CarouselTitle>
-    
-    <Carousel
-      cols={4}
-      rows={1}
-      gap={10}
-      loop
-      showDots
-      responsiveLayout={[{ breakpoint: 800, cols: 3 }]}
-    >
-      {recipes.map((recipe, index) => (
-        <Carousel.Item key={recipe.id}>
-          <Divv>
-            <img
-              style={{ width: '95%', height: '95px', objectFit: 'cover' }}
-              src={recipe.thumbnail_url}
-              alt={recipe.name}
-            />
-            <p className={recipe.thumbnail_url && recipe.thumbnail_url.length > 200 ? 'animated-text' : ''}>
-              {recipe.name}
-            </p>
-            <IconContainer>
-              <img 
-              onMouseEnter={() => handleIconHover(index)}
-              onMouseLeave={handleIconLeave}
-              src={hoveredImageIndex === index ? IconFav : Icon} alt="" />
-            </IconContainer>
-          </Divv>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+      <SearchCookBook>
+        <Search></Search>
+        <input type="text" placeholder='What do you want to cook today?' />
+      </SearchCookBook>
+      <CarouselTitle>
+        <h2>All Recipes</h2>
+        <p>All recipes available in the Cookbook</p>
+      </CarouselTitle>
 
-    <CategorieTitle>
-      <h2>Categories</h2>
-      <p>Search for recipes by category</p>
-    </CategorieTitle>
+      <Carousel
+        cols={4}
+        rows={1}
+        gap={10}
+        loop
+        showDots
+        responsiveLayout={[{ breakpoint: 800, cols: 3 }]}
+      >
+        {recipes.map((recipe, index) => (
+          <Carousel.Item key={recipe.id}>
+            <Divv>
+              <img
+                style={{ width: '95%', height: '95px', objectFit: 'cover' }}
+                src={recipe.thumbnail_url}
+                alt={recipe.name}
+              />
+              <p className={recipe.thumbnail_url && recipe.thumbnail_url.length > 200 ? 'animated-text' : ''}>
+                {recipe.name}
+              </p>
+              <IconContainer>
+                <img
+                  onMouseEnter={() => handleIconHover(index)}
+                  onMouseLeave={handleIconLeave}
+                  src={hoveredImageIndex === index ? IconFav : Icon} alt=""
+                />
+              </IconContainer>
+            </Divv>
+          </Carousel.Item>
+        ))}
+      </Carousel>
 
-    <CategorieContainer
-      ref={containerRef}
-      onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-    >
+      <CategorieTitle>
+        <h2>Categories</h2>
+        <p>Search for recipes by category</p>
+      </CategorieTitle>
 
-      {categoriesData.map((category) => (
-        <CategorieElement
-          key={category.id}
-          onClick={() => handleCategoryClick(category)}
-        >
-          <img src={category.image} alt="" />
-          <p>{category.name}</p>
-        </CategorieElement>
-      ))}
-    </CategorieContainer>
+      <CategorieContainer
+        ref={containerRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
+        {categoriesData.map((category) => (
+          <CategorieElement
+            key={category.id}
+            onClick={() => handleCategoryClick(category)}
+          >
+            <img src={category.image} alt="" />
+            <p>{category.name}</p>
+          </CategorieElement>
+        ))}
+      </CategorieContainer>
 
-    <Dialog open={openDialog} maxWidth="md" onClose={handleCloseDialog} >
-      <DialogTitle>{selectedCategory ? selectedCategory.name : 'Category Name'}</DialogTitle>
-      <DialogContent>
-        <DialogContentText>
-          {/* Add content related to the selected category */}
-          {/* You can fetch recipes based on the selected category and display them here */}
-          Content for {selectedCategory ? selectedCategory.name : 'Category Name'}
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleCloseDialog} color="primary">
-          Close
-        </Button>
-      </DialogActions>
-    </Dialog>
-
+      <Dialog open={openDialog} maxWidth="md" fullWidth={true} onClose={handleCloseDialog} PaperProps={{ style: { width: '80%', maxWidth: 'none', height: '80%', maxHeight: 'none' } }}>
+        <DialogTitle>{selectedCategory ? selectedCategory.name : 'Category Name'}</DialogTitle>
+        <DialogContent style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '10px', justifyContent: 'center'}}>
+          {dialogRecipes.map((recipe) => (
+            <Card key={recipe.id} style={{ marginBottom: '10px', width: '15em' }}>
+              <CardMedia
+                component="img"
+                alt={recipe.name}
+                height="140"
+                image={recipe.thumbnail_url}
+              />
+              <CardContent>
+                <p>{recipe.name}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
