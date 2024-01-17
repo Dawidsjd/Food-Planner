@@ -6,8 +6,6 @@ import MealPlanner from "./components/pages/MealPlanner/MealPlanner.jsx";
 import Cookbook from "./components/pages/Cookbook/Cookbook.jsx";
 import Suggestions from "./components/pages/Suggestions/Suggestions.jsx";
 import Settings from "./components/pages/Settings/Settings.jsx";
-import Account from "./components/pages/Settings/Account/Account.jsx";
-import Appearance from "./components/pages/Settings/Appearance/Appearance.jsx";
 import LoginPage from "./components/pages/LoginPage/LoginPage.jsx";
 /***************************/
 import FoodList from "./components/FoodList/FoodList";
@@ -39,8 +37,6 @@ function App() {
           />
           <Route exact path="/Suggestions" element={<Suggestions />} />
           <Route exact path="/Settings" element={<Settings />} />
-          <Route exact path="/Settings/Account" element={<Account />} />
-          <Route exact path="/Settings/Appearance" element={<Appearance />} />
           <Route exact path="/LoginPage" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
