@@ -15,7 +15,3 @@ export const SuggestionsPanel = styled("div")(({ theme }) => ({
     justifyContent: "center",
     alignItems: "center",
 }));
-
-export const SuggestionsBox = styled("div")(({ theme }) => ({
-    background: globalTheme.palette.background.additional,
-}));
