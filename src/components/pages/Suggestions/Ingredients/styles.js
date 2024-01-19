@@ -5,8 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 
 export const IngredientsContainer = styled("section")({
-    width: "400px",
-    
+    width: "450px",
 });
 
 export const BarSection = styled("section")({
@@ -69,12 +68,12 @@ export const StyledDeleteIcon = styled(DeleteIcon)({
 
 export const AddPlus = styled(AddIcon)({
     color: '#fff',
-    fontSize: "30px",
+    fontSize: "60px",
 });
 
 export const StyledPlusIcon = styled("div")({
     background: "#9F8BE8 !important",
-    padding: "20px 20px 18px 20px !important",
+    padding: "10px 10px 8px 10px !important",
     borderRadius: "50% !important",
 });
 

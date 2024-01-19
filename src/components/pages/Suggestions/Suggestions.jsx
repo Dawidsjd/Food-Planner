@@ -2,10 +2,10 @@ import React from "react";
 import Menu from "../../Menu/Menu";
 import {
   MenuSuggestContainer,
-  SuggestionsBox,
   SuggestionsPanel,
 } from "./styles";
 import Ingredients from "./Ingredients/Ingredients";
+import MatchingDishes from "./MatchingDishes/MatchingDishes";
 
 const Suggestions = () => {
   return (
@@ -15,6 +15,9 @@ const Suggestions = () => {
         <SuggestionsPanel>
           <div>
             <Ingredients />
+          </div>
+          <div>
+            <MatchingDishes />
           </div>
         </SuggestionsPanel>
       </MenuSuggestContainer>
