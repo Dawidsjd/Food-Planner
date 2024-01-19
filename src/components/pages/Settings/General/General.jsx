@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  GeneralSection,
   ImageSection,
   ProfileImage,
   ProfileButtons,
@@ -33,7 +32,7 @@ const General = () => {
     setSelectedImage(null);
   };
   return (
-    <GeneralSection>
+    <>
       <ImageSection>
         <ProfileImage src={selectedImage || User} />
         <ProfileButtons>
@@ -65,11 +64,7 @@ const General = () => {
           Favourite list
         </FavouriteBox>
       </DataSection>
-      <SetSection>
-        <StyledBtn className="cancel">Cancel</StyledBtn>
-        <StyledBtn>Save</StyledBtn>
-      </SetSection>
-    </GeneralSection>
+    </>
   );
 };
 

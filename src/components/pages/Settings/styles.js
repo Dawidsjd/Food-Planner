@@ -8,7 +8,6 @@ export const SettingsContainer = styled("div")(({ theme }) => ({
 }));
 
 export const SettingsPanel = styled("div")(({ theme }) => ({
-  border: "1px solid black",
   flex: 1,
   display: "flex",
   justifyContent: "center",
@@ -91,9 +90,8 @@ export const LinkBtn = styled("button")(({ theme }) => ({
   },
 }));
 
-export const ActiveSection = styled("div")(({ theme }) => ({}));
-
-export const GeneralSection = styled("div")(({ theme }) => ({
+export const ActiveSection = styled("div")(({ theme }) => ({
+  minHeight: "390px",
   margin: "10px",
 }));
 
@@ -183,4 +181,9 @@ export const SetSection = styled("div")(({ theme }) => ({
   display: "flex",
   width: "100%",
   justifyContent: "flex-end",
+}));
+
+export const StyledIcon = styled("i")(({ theme }) => ({
+  fontSize: globalTheme.typography.subtitle.main,
+  margin: "1px 10px",
 }));

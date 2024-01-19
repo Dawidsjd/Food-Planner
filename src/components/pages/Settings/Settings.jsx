@@ -8,6 +8,8 @@ import {
   SectionLinks,
   LinkBtn,
   ActiveSection,
+  SetSection,
+  StyledBtn,
 } from "./styles";
 import General from "./General/General";
 import Security from "./Security/Security";
@@ -53,6 +55,10 @@ const Settings = () => {
             {activeLink === "appearance" && <Appearance />}
             {activeLink === "security" && <Security />}
           </ActiveSection>
+          <SetSection>
+            <StyledBtn className="cancel">Cancel</StyledBtn>
+            <StyledBtn>Save</StyledBtn>
+          </SetSection>
         </SettingsBox>
       </SettingsPanel>
     </SettingsContainer>
