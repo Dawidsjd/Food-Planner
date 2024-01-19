@@ -19,7 +19,7 @@ import { IoHomeSharp } from "react-icons/io5";
 import { FaCalendar, FaBook, FaRegStar } from "react-icons/fa";
 import { IoMdLogIn } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
-import User from "../../assets/siuu.jpg";
+import User from "../../assets/user.jpg";
 
 const Menu = () => {
   const [clicked, setClicked] = useState(false);

@@ -92,3 +92,95 @@ export const LinkBtn = styled("button")(({ theme }) => ({
 }));
 
 export const ActiveSection = styled("div")(({ theme }) => ({}));
+
+export const GeneralSection = styled("div")(({ theme }) => ({
+  margin: "10px",
+}));
+
+export const ImageSection = styled("div")(({ theme }) => ({
+  display: "flex",
+}));
+
+export const ProfileImage = styled("img")(({ theme }) => ({
+  width: "120px",
+  height: "120px",
+  margin: "0 15px",
+  borderRadius: "10px",
+}));
+
+export const ProfileButtons = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  margin: "10px",
+}));
+
+export const StyledBtn = styled("button")(({ theme }) => ({
+  margin: "10px",
+  width: "120px",
+  height: "35px",
+  borderRadius: "15px",
+  border: "none",
+  background: globalTheme.palette.primary.main,
+  color: globalTheme.palette.secondary.main,
+  fontSize: globalTheme.typography.secondary.main,
+  alignItems: "center",
+  display: "flex",
+  justifyContent: "center",
+  cursor: "pointer",
+
+  "&:hover": {
+    background: "transparent",
+    border: "1px solid #6A8D73",
+    color: globalTheme.palette.primary.main,
+  },
+
+  "&.cancel": {
+    background: "transparent",
+    border: "1px solid #6A8D73",
+    color: globalTheme.palette.primary.main,
+
+    "&:hover": {
+      background: globalTheme.palette.primary.main,
+      border: "none",
+      color: globalTheme.palette.secondary.main,
+    },
+  },
+}));
+
+export const DataSection = styled("div")(({ theme }) => ({
+  display: "flex",
+}));
+
+export const StyledForm = styled("form")(({ theme }) => ({
+  width: "50%",
+  margin: "15px",
+}));
+
+export const StyledTitle = styled("p")(({ theme }) => ({
+  fontSize: globalTheme.typography.subtitle.main,
+  fontWeight: "600",
+  marginBottom: "5px",
+}));
+
+export const StyledSubtitle = styled("p")(({ theme }) => ({
+  fontSize: globalTheme.typography.primary.main,
+}));
+
+export const StyledInput = styled("input")(({ theme }) => ({
+  width: "60%",
+  borderRadius: "5px",
+  border: ".5px solid #D9D9D9",
+  padding: "3px ",
+  marginTop: "5px",
+}));
+
+export const FavouriteBox = styled("div")(({ theme }) => ({
+  margin: "15px",
+  width: "50%",
+}));
+
+export const SetSection = styled("div")(({ theme }) => ({
+  display: "flex",
+  width: "100%",
+  justifyContent: "flex-end",
+}));

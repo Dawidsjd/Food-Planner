@@ -35,16 +35,16 @@ const Settings = () => {
                 General
               </LinkBtn>
               <LinkBtn
-                className={activeLink === "appearance" ? "active" : ""}
-                onClick={() => handleLinkClick("appearance")}
-              >
-                Appearance
-              </LinkBtn>
-              <LinkBtn
                 className={activeLink === "security" ? "active" : ""}
                 onClick={() => handleLinkClick("security")}
               >
                 Security
+              </LinkBtn>
+              <LinkBtn
+                className={activeLink === "appearance" ? "active" : ""}
+                onClick={() => handleLinkClick("appearance")}
+              >
+                Appearance
               </LinkBtn>
             </SectionLinks>
           </SectionHeader>
