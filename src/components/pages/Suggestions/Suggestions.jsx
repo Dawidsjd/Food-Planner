@@ -9,7 +9,6 @@ const Suggestions = () => {
   <Menu />
     <SuggestionsPanel>
       <div>
-      <h1>Ingredients</h1>
       <Ingredients />
     </div>
       </SuggestionsPanel>

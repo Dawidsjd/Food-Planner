@@ -1,8 +1,23 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import {
+  IngredientsContainer,
+  BarSection,
+  ContainerProductList,
+  WrapperInputs,
+  WrapperContent,
+  StyledDeleteIcon,
+  AddPlus,
+  StyledPlusIcon,
+  StyledSearchIcon,
+  
+ } from './styles.js'
+
 
 const IngredientsWrapper = styled.div`
-  background-color: #4caf50;
+  background-color: #86BF80;
   padding: 20px;
   border-radius: 8px;
 `;
@@ -31,30 +46,49 @@ const Ingredients = () => {
 
   return (
     <IngredientsWrapper>
-      <input
-        type="text"
-        placeholder="Search ingredients"
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
-      <ul>
-        {filteredIngredients.map((ingredient) => (
-          <li key={ingredient}>
-            {ingredient} <button onClick={() => handleAddIngredient(ingredient)}>Add</button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <h2>Selected Ingredients</h2>
-        <ul>
-          {selectedIngredients.map((ingredient) => (
-            <li key={ingredient}>
-              {ingredient}{' '}
-              <button onClick={() => handleRemoveIngredient(ingredient)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <IngredientsContainer>
+        <h2>Ingredients</h2>
+        <BarSection>
+            <div>
+              <StyledSearchIcon />
+              <input type="text" />
+            </div>
+            <StyledPlusIcon><AddPlus /></StyledPlusIcon>
+        </BarSection>
+        <ContainerProductList>
+          <WrapperInputs>
+            <WrapperContent>
+                <input type="text" />
+                <div>
+                <EditIcon />
+                <StyledDeleteIcon />
+                </div>
+            </WrapperContent>
+            <WrapperContent>
+                <input type="text" />
+                <div>
+                <EditIcon />
+                <StyledDeleteIcon />
+                </div>
+            </WrapperContent>
+            <WrapperContent>
+                <input type="text" />
+                <div>
+                <EditIcon />
+                <StyledDeleteIcon />
+                </div>
+            </WrapperContent>
+            <WrapperContent>
+                <input type="text" />
+                <div>
+                <EditIcon />
+                <StyledDeleteIcon />
+                </div>
+            </WrapperContent>
+          </WrapperInputs>
+            
+        </ContainerProductList>
+    </IngredientsContainer>
     </IngredientsWrapper>
   );
 };
