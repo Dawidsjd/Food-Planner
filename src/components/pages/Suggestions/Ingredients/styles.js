@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export const IngredientsContainer = styled("section")({
     width: "450px",
+    height: "658px",
 });
 
 export const BarSection = styled("section")({
@@ -33,6 +34,7 @@ export const BarSection = styled("section")({
 export const ContainerProductList = styled("div")({
     background: "#fff",
     borderRadius: "25px",
+    height: "500px",
 });
 
 export const WrapperInputs = styled("div")({
