@@ -2,44 +2,68 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
     DishesWrapper,
-    IngredientsContainer,
+    MatchingDishesContainer,
     WrapperContent,
     WrapperInputs,
     HeadingContainer,
+    WrapperImage,
+    SectionListDishes,
+    WrapperContentText,
  } from './styles.js'
 
+import majtkiDzordan from "../../../../assets/majkidzordan.jpg"
 
 
 const MatchingDishes = () => {
     
 return (
-   <DishesWrapper>
-    <IngredientsContainer>
-        <HeadingContainer>
-        <h2>Matching Dishes</h2>
-        </HeadingContainer>
-        <WrapperInputs>
-            <WrapperContent>
-                <h2>Food Name</h2>
+    <DishesWrapper>
+        <MatchingDishesContainer>
+            <HeadingContainer>
+                <h2>Matching Dishes</h2>
+            </HeadingContainer>
+            <SectionListDishes>
                 <div>
-                <input type="text" />
+                    <WrapperContent>
+                        <WrapperImage>
+                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                        </WrapperImage>
+                        <WrapperContentText>
+                            <h2>Food Name</h2>
+                            <p>Ingredients: ingredients1, ingredients2, ingredients3, ingredients4...</p>
+                        </WrapperContentText>
+                    </WrapperContent>
+                    <WrapperContent>
+                        <WrapperImage>
+                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                        </WrapperImage>
+                        <WrapperContentText>
+                            <h2>Food Name</h2>
+                            <p>Ingredients: ingredients1, ingredients2, ingredients3, ingredients4...</p>
+                        </WrapperContentText>
+                    </WrapperContent>
+                    <WrapperContent>
+                        <WrapperImage>
+                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                        </WrapperImage>
+                        <WrapperContentText>
+                            <h2>Food Name</h2>
+                            <p>Ingredients: ingredients1, ingredients2, ingredients3, ingredients4...</p>
+                        </WrapperContentText>
+                    </WrapperContent>
+                    <WrapperContent>
+                        <WrapperImage>
+                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                        </WrapperImage>
+                        <WrapperContentText>
+                            <h2>Food Name</h2>
+                            <p>Ingredients: ingredients1, ingredients2, ingredients3, ingredients4...</p>
+                        </WrapperContentText>
+                    </WrapperContent>
                 </div>
-            </WrapperContent>
-            <WrapperContent>
-                <h2>Food Name</h2>
-                <div>
-                <input type="text" />
-                </div>
-            </WrapperContent>
-            <WrapperContent>
-                <h2>Food Name</h2>
-                <div>
-                <input type="text" />
-                </div>
-            </WrapperContent>
-        </WrapperInputs>
-    </IngredientsContainer>
-   </DishesWrapper> 
+            </SectionListDishes>
+        </MatchingDishesContainer>
+    </DishesWrapper>
 );
 };
 
