@@ -70,7 +70,7 @@ const SearchFood = ({ onDragStart }) => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "b459219d15mshc4c14541f610567p1c8df9jsn45d71054de0a",
+        "X-RapidAPI-Key": "c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649",
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
       },
     };
