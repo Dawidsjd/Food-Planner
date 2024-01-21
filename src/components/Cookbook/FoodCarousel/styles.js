@@ -103,9 +103,23 @@ export const IconContainer = styled('div')(({ theme }) => ({
     marginLeft: '5%',
     marginBottom: '10px',
     borderRadius: '15px',
-  
+    "&:hover": {
+      cursor: 'pointer'
+    },
     ":last-child": {
       marginRight: '5%',
     },
+  }));
+
+
+  export const DialogMedia = styled('div')(({ theme }) => ({
+    position: 'absolute',
+    top: '2.5%',
+    left: '2.5%',
+    width: '2.5em',
+    "& img":{
+      width: '100%'
+    }
+    
   }));
   

@@ -16,7 +16,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import style, { CarouselCon, CarouselTitle, CategorieContainer, CategorieElement, CategorieTitle, Divv, IconContainer, SearchCookBook } from './styles';
+import style, { DialogMedia ,CarouselCon, CarouselTitle, CategorieContainer, CategorieElement, CategorieTitle, Divv, IconContainer, SearchCookBook } from './styles';
 import './keyframe.css';
 import { Search } from '@mui/icons-material';
 import { Card, CardContent, CardMedia, Grow, Skeleton } from '@mui/material';
@@ -191,31 +191,59 @@ const FoodCarousel = () => {
         ))}
       </CategorieContainer>
 
-      <Dialog open={openDialog} maxWidth="md" fullWidth={true} onClose={handleCloseDialog} PaperProps={{ style: { width: '80%', maxWidth: 'none', height: '80%', maxHeight: 'none' } }}>
-        <DialogTitle>{selectedCategory ? selectedCategory.name : 'Category Name'}</DialogTitle>
-        <DialogContent style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
-          {dialogRecipes.map((recipe, index) => (
-            <Grow in key={recipe.id} timeout={350 * index}>
-              <Card style={{ marginBottom: '10px', width: '15em', height: '14em' }}>
-                <CardMedia
-                  component="img"
-                  alt={recipe.name}
-                  height="140"
-                  image={recipe.thumbnail_url}
-                />
-                <CardContent>
-                  <p>{recipe.name}</p>
-                </CardContent>
-              </Card>
-            </Grow>
-          ))}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <Dialog
+          open={openDialog}
+          maxWidth="md"
+          fullWidth={true}
+          onClose={handleCloseDialog}
+          PaperProps={{
+            style: {
+              width: '80%',
+              maxWidth: 'none',
+              height: '80%',
+              maxHeight: 'none',
+              backgroundColor: '#F4FDD9', 
+            },
+          }}
+        >
+          <DialogMedia>
+            {selectedCategory ? <img src={selectedCategory.image}/>  : ''}
+          </DialogMedia>
+          <DialogTitle
+            style={{
+              textAlign: 'center',
+              color: '#111',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              letterSpacing: '3px'
+            }}
+          >
+            {selectedCategory ? selectedCategory.name : 'Category Name'}
+          </DialogTitle>
+          <DialogContent style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+            {dialogRecipes.map((recipe, index) => (
+              <Grow in key={recipe.id} timeout={350 * index}>
+                <Card style={{ marginBottom: '10px', width: '15em', height: '14em', background: '#86BF80', color: '#111', textAlign: 'center' }}>
+                  <CardMedia
+                    component="img"
+                    alt={recipe.name}
+                    height="140"
+                    image={recipe.thumbnail_url}
+                  />
+                  <CardContent>
+                    <p>{recipe.name}</p>
+                  </CardContent>
+                </Card>
+              </Grow>
+            ))}
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseDialog} color="primary" style={{ color: '#111' }}>
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+
     </>
   );
 };
