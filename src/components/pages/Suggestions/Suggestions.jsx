@@ -7,6 +7,7 @@ import {
 import Ingredients from "./Ingredients/Ingredients";
 import MatchingDishes from "./MatchingDishes/MatchingDishes";
 
+
 const Suggestions = () => {
   return (
     <>

@@ -11,7 +11,7 @@ import {
     WrapperContentText,
  } from './styles.js'
 
-import majtkiDzordan from "../../../../assets/majkidzordan.jpg"
+import majkiDzordan from "../../../../assets/majkidzordan.jpg"
 
 
 const MatchingDishes = () => {
@@ -26,7 +26,7 @@ return (
                 <div>
                     <WrapperContent>
                         <WrapperImage>
-                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                            <img src={majkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
                         </WrapperImage>
                         <WrapperContentText>
                             <h2>Food Name</h2>
@@ -35,7 +35,7 @@ return (
                     </WrapperContent>
                     <WrapperContent>
                         <WrapperImage>
-                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                            <img src={majkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
                         </WrapperImage>
                         <WrapperContentText>
                             <h2>Food Name</h2>
@@ -44,7 +44,7 @@ return (
                     </WrapperContent>
                     <WrapperContent>
                         <WrapperImage>
-                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                            <img src={majkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
                         </WrapperImage>
                         <WrapperContentText>
                             <h2>Food Name</h2>
@@ -53,7 +53,7 @@ return (
                     </WrapperContent>
                     <WrapperContent>
                         <WrapperImage>
-                            <img src={majtkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
+                            <img src={majkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
                         </WrapperImage>
                         <WrapperContentText>
                             <h2>Food Name</h2>
