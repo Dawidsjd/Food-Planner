@@ -46,25 +46,43 @@ export const IconContainer = styled('div')(({ theme }) => ({
     borderRadius: '10px',
     padding: '0.7em',
     width: '60%',
-    "& input":{
+    "& input": {
       marginLeft: '0.5em',
       border: 'none',
       outline: 'none',
       background: '#D9D9D9',
       width: '100%',
-      height: '100%'
-    }
+      height: '100%',
+    },
+    [theme.breakpoints.down("679.95")]: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   }));
+  
 
   export const CarouselTitle = styled('div')(({ theme }) => ({
     position: 'relative',
     margin: '0 0 2.5% 5%',
-
+    [theme.breakpoints.down("679.95")]: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      margin: "0 0 2.5% 0",
+    },
   }));
 
   export const CategorieTitle = styled('div')(({ theme }) => ({
     position: 'relative',
     margin: '5% 0 2.5% 5%',
+    [theme.breakpoints.down("679.95")]: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      margin: "5% 0 2.5% 0",
+    },
   }));
 
   export const CategorieContainer = styled('div')(({ theme }) => ({
@@ -90,6 +108,11 @@ export const IconContainer = styled('div')(({ theme }) => ({
     [theme.breakpoints.up("1526")]: {
       justifyContent: 'center'
     },
+    [theme.breakpoints.down("679.95")]: {
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+  },
+    
   }));
 
   export const CategorieElement = styled('div')(({ theme }) => ({
@@ -103,12 +126,18 @@ export const IconContainer = styled('div')(({ theme }) => ({
     marginLeft: '5%',
     marginBottom: '10px',
     borderRadius: '15px',
+    userSelect: 'none',
     "&:hover": {
       cursor: 'pointer'
     },
     ":last-child": {
       marginRight: '5%',
     },
+    [theme.breakpoints.down("679.95")]: {
+      ":last-child": {
+        marginRight: '0%',
+      },
+  },
   }));
 
 

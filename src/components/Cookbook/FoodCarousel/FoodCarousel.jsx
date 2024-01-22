@@ -143,7 +143,7 @@ const FoodCarousel = () => {
         gap={10}
         loop
         showDots
-        responsiveLayout={[{ breakpoint: 800, cols: 3 }]}
+        responsiveLayout={[{ breakpoint: 800, cols: 3 }, { breakpoint: 770, cols: 2 },]}
       >
         {recipes.map((recipe, index) => (
           <Carousel.Item key={recipe.id}>
@@ -185,7 +185,7 @@ const FoodCarousel = () => {
             key={category.id}
             onClick={() => handleCategoryClick(category)}
           >
-            <img src={category.image} alt="" />
+            <img src={category.image} alt="" draggable="false" />
             <p>{category.name}</p>
           </CategorieElement>
         ))}
