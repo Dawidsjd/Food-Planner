@@ -13,7 +13,7 @@ import {
 } from "./styles";
 import General from "./General/General";
 import Security from "./Security/Security";
-import Appearance from "./Appearance/Appearance";
+import Favorite from "./Favorite/Favorite";
 
 const Settings = () => {
   const [activeLink, setActiveLink] = useState("general");
@@ -43,17 +43,17 @@ const Settings = () => {
                 Security
               </LinkBtn>
               <LinkBtn
-                className={activeLink === "appearance" ? "active" : ""}
-                onClick={() => handleLinkClick("appearance")}
+                className={activeLink === "favorite" ? "active" : ""}
+                onClick={() => handleLinkClick("favorite")}
               >
-                Appearance
+                Favorite
               </LinkBtn>
             </SectionLinks>
           </SectionHeader>
           <ActiveSection>
             {activeLink === "general" && <General />}
-            {activeLink === "appearance" && <Appearance />}
             {activeLink === "security" && <Security />}
+            {activeLink === "favorite" && <Favorite />}
           </ActiveSection>
           <SetSection>
             <StyledBtn className="cancel">Cancel</StyledBtn>

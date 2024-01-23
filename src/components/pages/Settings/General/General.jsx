@@ -4,13 +4,11 @@ import {
   ProfileImage,
   ProfileButtons,
   StyledBtn,
-  DataSection,
+  GeneralSection,
   StyledForm,
   StyledTitle,
   StyledSubtitle,
   StyledInput,
-  FavouriteBox,
-  SetSection,
 } from "../styles";
 import User from "../../../../assets/user.jpg";
 
@@ -32,7 +30,7 @@ const General = () => {
     setSelectedImage(null);
   };
   return (
-    <>
+    <GeneralSection>
       <ImageSection>
         <ProfileImage src={selectedImage || User} />
         <ProfileButtons>
@@ -49,22 +47,16 @@ const General = () => {
           <StyledBtn onClick={handleDeleteImage}>Delete</StyledBtn>
         </ProfileButtons>
       </ImageSection>
-      <DataSection>
-        <StyledForm>
-          <StyledTitle>Edit Profile</StyledTitle>
-          <StyledSubtitle>User</StyledSubtitle>
-          <StyledInput type="text" />
-          <StyledSubtitle>Email</StyledSubtitle>
-          <StyledInput type="email" />
-          <StyledSubtitle>Phone Number</StyledSubtitle>
-          <StyledInput type="number" />
-        </StyledForm>
-        <FavouriteBox>
-          <StyledTitle>Favourites Dishes</StyledTitle>
-          Favourite list
-        </FavouriteBox>
-      </DataSection>
-    </>
+      <StyledForm>
+        <StyledTitle>Edit Profile</StyledTitle>
+        <StyledSubtitle>User</StyledSubtitle>
+        <StyledInput type="text" />
+        <StyledSubtitle>Email</StyledSubtitle>
+        <StyledInput type="email" />
+        <StyledSubtitle>Phone Number</StyledSubtitle>
+        <StyledInput type="number" />
+      </StyledForm>
+    </GeneralSection>
   );
 };
 

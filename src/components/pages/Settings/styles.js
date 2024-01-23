@@ -91,12 +91,14 @@ export const LinkBtn = styled("button")(({ theme }) => ({
 }));
 
 export const ActiveSection = styled("div")(({ theme }) => ({
-  minHeight: "390px",
+  minHeight: "300px",
   margin: "10px",
 }));
 
 export const ImageSection = styled("div")(({ theme }) => ({
   display: "flex",
+  margin: "15px",
+  width: "50%",
 }));
 
 export const ProfileImage = styled("img")(({ theme }) => ({
@@ -145,7 +147,7 @@ export const StyledBtn = styled("button")(({ theme }) => ({
   },
 }));
 
-export const DataSection = styled("div")(({ theme }) => ({
+export const GeneralSection = styled("div")(({ theme }) => ({
   display: "flex",
 }));
 
@@ -172,7 +174,7 @@ export const StyledInput = styled("input")(({ theme }) => ({
   marginTop: "5px",
 }));
 
-export const FavouriteBox = styled("div")(({ theme }) => ({
+export const FavoriveBox = styled("div")(({ theme }) => ({
   margin: "15px",
   width: "50%",
 }));
