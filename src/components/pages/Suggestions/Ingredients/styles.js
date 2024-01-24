@@ -82,6 +82,9 @@ export const WrapperContent = styled("div")({
 
 export const StyledDeleteIcon = styled(DeleteIcon)({
   color: '#f21332',
+  '& :hover': {
+    cursor: "pointer",
+  }
 });
 
 export const AddPlus = styled(AddIcon)({
@@ -94,9 +97,17 @@ export const StyledPlusIcon = styled("div")({
   padding: "10px 10px 8px 10px !important",
   borderRadius: "50% !important",
   marginTop: "10px",
+  transition: '0.3s',
+  '& :hover': {
+    cursor: "pointer",
+  }
 });
 
 export const StyledSearchIcon = styled(SearchIcon)({
   marginLeft: "5px",
-  borderRight: "2px solid #95a5a6",
+});
+
+export const IngredientElement = styled("p")({
+  textAlign: 'center',
+  width: '85%'
 });
