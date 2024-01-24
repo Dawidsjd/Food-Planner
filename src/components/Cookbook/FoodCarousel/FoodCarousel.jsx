@@ -1,29 +1,27 @@
-import React, { useState, useRef } from 'react';
-import SearchFood from '../SearchFood/SearchFood';
-import CarousTitle from '../CarouselTitle/CarousTitle';
-import CarouselMainComp from '../CarouselMainComponent/CarouselMainComp';
-import CategorTitle from '../CategorieTitle/CategorTitle';
-import CategorieSlider from '../CategorieSlider/CategorieSlider';
+import React, { useState, useRef } from "react";
+import SearchHeader from "../../SearchHeader/SearchHeader";
+import CarousTitle from "../CarouselTitle/CarousTitle";
+import CarouselMainComp from "../CarouselMainComponent/CarouselMainComp";
+import CategorTitle from "../CategorieTitle/CategorTitle";
+import CategorieSlider from "../CategorieSlider/CategorieSlider";
 
 const FoodCarousel = () => {
- 
   return (
     <>
       {/* Search panel */}
-      <SearchFood/>
+      <SearchHeader />
 
       {/* Title - Carousel */}
-      <CarousTitle/>
+      <CarousTitle />
 
       {/* Carousel */}
-      <CarouselMainComp/>
+      <CarouselMainComp />
 
       {/* Title - Categorie */}
-      <CategorTitle/>
+      <CategorTitle />
 
       {/* Categorie Slider */}
-      <CategorieSlider/>
-
+      <CategorieSlider />
     </>
   );
 };

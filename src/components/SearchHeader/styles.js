@@ -27,7 +27,6 @@ export const SearchCookBook = styled("div")(({ theme }) => ({
 
 export const LogoSection = styled("div")(({ theme }) => ({
   margin: "2.5% 5% 5% 5%",
-  justifyContent: "flex-end",
 }));
 
 export const LogoImg = styled("img")(({ theme }) => ({
@@ -43,4 +42,25 @@ export const SearchSection = styled("div")(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
+}));
+
+export const MobileOptions = styled("div")(({ theme }) => ({
+  display: "none",
+
+  [theme.breakpoints.down("md")]: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: "5px",
+    "& .link, & .link-active": {
+      "&:hover, &.link-active": {
+        background: "none",
+        color: globalTheme.palette.complementary.main,
+      },
+    },
+  },
+}));
+
+export const StyledIcon = styled("i")(({ theme }) => ({
+  margin: "0 5px",
+  fontSize: "30px",
 }));
