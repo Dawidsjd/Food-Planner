@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import MealsPerDay from './MealsPerDay/MealsPerDay';
-import SearchFood from './SearchFood/SearchFood';
-import MakroProgress from './MakroProgress/MakroProgress';
-import MealTitle from './MealTitle/MealTitle';
+import React, { useState } from "react";
+import MealsPerDay from "./MealsPerDay/MealsPerDay";
+import SearchFood from "./SearchFood/SearchFood";
+import MakroProgress from "./MakroProgress/MakroProgress";
+import MealTitle from "./MealTitle/MealTitle";
 import {
+  ContentContainer,
   TopLeftContainer,
   TopRightContainer,
   BottomLeftContainer,
   BottomRightContainer,
   ScrollMealsContainer,
-} from './style';
+} from "./style";
 
 const FoodList = () => {
   const [numberOfBoxes, setNumberOfBoxes] = useState(1);
@@ -35,10 +36,11 @@ const FoodList = () => {
       try {
         const url = `https://tasty.p.rapidapi.com/recipes/get-more-info?id=${draggedRecipe.id}`;
         const options = {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'X-RapidAPI-Key': 'c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649',
-            'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
+            "X-RapidAPI-Key":
+              "c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649",
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com",
           },
         };
 
@@ -72,7 +74,7 @@ const FoodList = () => {
   };
 
   return (
-    <>
+    <ContentContainer>
       <TopLeftContainer>
         <MealTitle />
       </TopLeftContainer>
@@ -101,7 +103,7 @@ const FoodList = () => {
           />
         </ScrollMealsContainer>
       </BottomRightContainer>
-    </>
+    </ContentContainer>
   );
 };
 

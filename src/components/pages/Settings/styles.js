@@ -7,10 +7,17 @@ export const SettingsContainer = styled("div")(({ theme }) => ({
   position: "relative",
 }));
 
+export const ContentWrapper = styled("div")(({ theme }) => ({
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+}));
+
 export const SettingsPanel = styled("div")(({ theme }) => ({
   flex: 1,
   display: "flex",
   justifyContent: "center",
+  width: "100%",
   alignItems: "center",
 }));
 
@@ -128,6 +135,13 @@ export const StyledBtn = styled("button")(({ theme }) => ({
   justifyContent: "center",
   cursor: "pointer",
 
+  // Responsywność - tablet
+  [theme.breakpoints.down("lg")]: {
+    width: "90px",
+    height: "25px",
+    fontSize: "10px",
+  },
+
   "&:hover": {
     background: "transparent",
     border: "1px solid #6A8D73",
@@ -149,11 +163,22 @@ export const StyledBtn = styled("button")(({ theme }) => ({
 
 export const GeneralSection = styled("div")(({ theme }) => ({
   display: "flex",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+  },
 }));
 
 export const StyledForm = styled("form")(({ theme }) => ({
   width: "50%",
   margin: "15px",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    margin: "0",
+  },
 }));
 
 export const StyledTitle = styled("p")(({ theme }) => ({
@@ -172,6 +197,11 @@ export const StyledInput = styled("input")(({ theme }) => ({
   border: ".5px solid #D9D9D9",
   padding: "3px ",
   marginTop: "5px",
+
+  // Responsywność - telefon
+  [theme.breakpoints.down("md")]: {
+    width: "80%",
+  },
 }));
 
 export const FavoriveBox = styled("div")(({ theme }) => ({

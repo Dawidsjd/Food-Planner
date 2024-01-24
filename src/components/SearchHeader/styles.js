@@ -1,4 +1,5 @@
 import { styled } from "@mui/system";
+import globalTheme from "../../globalTheme/globalTheme";
 
 export const SearchCookBook = styled("div")(({ theme }) => ({
   position: "relative",

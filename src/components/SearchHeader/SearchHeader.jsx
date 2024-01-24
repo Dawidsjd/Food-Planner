@@ -1,14 +1,14 @@
 import React from "react";
 import { SearchCookBook, LogoSection, LogoImg, SearchSection } from "./styles";
 import { Search } from "@mui/icons-material";
-import Logo from "../../../assets/logo.png";
+import Logo from "../../assets/logo.png";
 
-const SearchFood = () => {
+const SearchHeader = () => {
   return (
     <SearchSection>
       <SearchCookBook>
         <Search></Search>
-        <input type="text" placeholder="What do you want to cook today?" />
+        <input type="text" placeholder="What would you like to eat?" />
       </SearchCookBook>
       <LogoSection>
         <LogoImg src={Logo} />
@@ -17,4 +17,4 @@ const SearchFood = () => {
   );
 };
 
-export default SearchFood;
+export default SearchHeader;

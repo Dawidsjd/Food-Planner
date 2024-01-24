@@ -49,6 +49,8 @@ export const UserImg = styled("div")(({ theme }) => ({
   height: "44px",
   borderRadius: "50%",
   overflow: "hidden",
+  pointerEvents: "none",
+  userSelect: "none",
 
   // Responsywność - telefon
   [theme.breakpoints.down("md")]: {

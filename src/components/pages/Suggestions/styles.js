@@ -1,17 +1,20 @@
 import globalTheme from "../../../globalTheme/globalTheme";
 import { styled } from "@mui/system";
 
-export const MenuSuggestContainer = styled('div')(({ theme }) => ({
-    display: "flex",
-    flexDirection: "row",
-    position: "relative",
+export const SuggestContainer = styled("div")(({ theme }) => ({
+  display: "flex",
 }));
 
-export const SuggestionsPanel = styled("div")(({ theme }) => ({
-    border: "1px solid black",
-    flex: 1,
-    padding: "20px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+export const ContentWrapper = styled("div")(({ theme }) => ({
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+}));
+
+export const SuggestionPanel = styled("div")(({ theme }) => ({
+  flex: 1,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
 }));

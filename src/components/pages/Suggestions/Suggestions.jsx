@@ -1,28 +1,22 @@
 import React from "react";
 import Menu from "../../Menu/Menu";
-import {
-  MenuSuggestContainer,
-  SuggestionsPanel,
-} from "./styles";
+import { SuggestContainer, ContentWrapper, SuggestionPanel } from "./styles";
 import Ingredients from "./Ingredients/Ingredients";
 import MatchingDishes from "./MatchingDishes/MatchingDishes";
-
+import SearchHeader from "../../SearchHeader/SearchHeader";
 
 const Suggestions = () => {
   return (
-    <>
-      <MenuSuggestContainer>
-        <Menu />
-        <SuggestionsPanel>
-          <div>
-            <Ingredients />
-          </div>
-          <div>
-            <MatchingDishes />
-          </div>
-        </SuggestionsPanel>
-      </MenuSuggestContainer>
-    </>
+    <SuggestContainer>
+      <Menu />
+      <ContentWrapper>
+        <SearchHeader />
+        <SuggestionPanel>
+          <Ingredients />
+          <MatchingDishes />
+        </SuggestionPanel>
+      </ContentWrapper>
+    </SuggestContainer>
   );
 };
 
