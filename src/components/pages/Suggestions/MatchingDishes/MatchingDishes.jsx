@@ -1,44 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
-    DishesWrapper,
-    MatchingDishesContainer,
-    WrapperContent,
-    WrapperInputs,
-    HeadingContainer,
-    WrapperImage,
-    SectionListDishes,
-    WrapperContentText,
- } from './styles.js'
+  DishesWrapper,
+  MatchingDishesContainer,
+  WrapperContent,
+  WrapperInputs,
+  HeadingContainer,
+  WrapperImage,
+  SectionListDishes,
+  WrapperContentText,
+} from './styles.js';
 
-import majkiDzordan from "../../../../assets/majkidzordan.jpg"
+const MatchingDishes = ({ ingredientsList }) => {
+  const [matchingDishes, setMatchingDishes] = useState([]);
 
+  useEffect(() => {
+    const fetchMatchingDishes = async () => {
+      // Sprawdzamy, czy ingredientsList nie jest puste
+      if (ingredientsList.length === 0) {
+        setMatchingDishes([]);
+        return;
+      }
 
-const MatchingDishes = () => {
-    
-return (
+      const ingredientsQuery = ingredientsList.join('%20');
+      const url = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&q=${ingredientsQuery}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649',
+          'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        setMatchingDishes(data.results);
+      } catch (error) {
+        console.error('Error fetching matching dishes:', error);
+      }
+    };
+
+    fetchMatchingDishes();
+  }, [ingredientsList]); // Dodajemy ingredientsList do zależności useEffect
+
+  return (
     <DishesWrapper>
-        <MatchingDishesContainer>
-            <HeadingContainer>
-                <h2>Matching Dishes</h2>
-            </HeadingContainer>
-            <SectionListDishes>
-                <div>
-                    <WrapperContent>
-                        <WrapperImage>
-                            <img src={majkiDzordan} alt="Majkyl dżekson" width={1000} height={1000} />
-                        </WrapperImage>
-                        <WrapperContentText>
-                            <h2>Food Name</h2>
-                            <p>Ingredients: ingredients1, ingredients2, ingredients3, ingredients4...</p>
-                        </WrapperContentText>
-                    </WrapperContent>
-                    
-                </div>
-            </SectionListDishes>
-        </MatchingDishesContainer>
+      <MatchingDishesContainer>
+        <HeadingContainer>
+          <h2>Matching Dishes</h2>
+        </HeadingContainer>
+        <SectionListDishes>
+          <div>
+            {matchingDishes.length > 0 ? (
+              matchingDishes.map((dish) => (
+                <WrapperContent key={dish.id}>
+                  <WrapperImage>
+                    <img src={dish.thumbnail_url} alt={dish.name} />
+                  </WrapperImage>
+                  <WrapperContentText>
+                    <h2>{dish.name}</h2>
+                    {/* Dodaj wyświetlanie składników, opisu itp. */}
+                  </WrapperContentText>
+                </WrapperContent>
+              ))
+            ) : (
+              <p>No results</p>
+            )}
+          </div>
+        </SectionListDishes>
+      </MatchingDishesContainer>
     </DishesWrapper>
-);
+  );
 };
 
 export default MatchingDishes;

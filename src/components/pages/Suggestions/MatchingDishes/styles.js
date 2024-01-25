@@ -76,6 +76,7 @@ export const SectionListDishes = styled("div")({
   width: '95%',
   height: '90%',
   display: 'flex',
+  flexDirection: 'column',
   padding: '5px',
   position: '',
   overflowY: 'scroll',
