@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import Carousel from 'better-react-carousel';
-import IconFav from '../../../assets/favourite.svg';
-import Icon from '../../../assets/unfavourite.svg';
-import { Divv, IconContainer } from './styles';
+import React, { useEffect, useState } from "react";
+import Carousel from "better-react-carousel";
+import IconFav from "../../../assets/favourite.svg";
+import Icon from "../../../assets/unfavourite.svg";
+import { Divv, IconContainer } from "./styles";
 
 const CarouselMainComp = () => {
-
   const [recipes, setRecipes] = useState([]);
   const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const url =
-          'https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes';
+          "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes";
         const options = {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'X-RapidAPI-Key': 'c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649',
-            'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
+            "X-RapidAPI-Key":
+              "b04392eaa5msh0f05838fdb88036p19bf10jsn4ac20fbe4882",
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com",
           },
         };
 
@@ -28,7 +27,7 @@ const CarouselMainComp = () => {
 
         setRecipes(data.results);
       } catch (error) {
-        console.error('Error fetching recipes:', error);
+        console.error("Error fetching recipes:", error);
       }
     };
 
@@ -43,39 +42,48 @@ const CarouselMainComp = () => {
     setHoveredImageIndex(null);
   };
 
-    
   return (
     <Carousel
-        cols={4}
-        rows={1}
-        gap={10}
-        loop
-        showDots
-        responsiveLayout={[{ breakpoint: 800, cols: 3 }, { breakpoint: 770, cols: 2 },]}
-      >
-        {recipes.map((recipe, index) => (
-          <Carousel.Item key={recipe.id}>
-            <Divv>
+      cols={4}
+      rows={1}
+      gap={10}
+      loop
+      showDots
+      responsiveLayout={[
+        { breakpoint: 800, cols: 3 },
+        { breakpoint: 770, cols: 2 },
+      ]}
+    >
+      {recipes.map((recipe, index) => (
+        <Carousel.Item key={recipe.id}>
+          <Divv>
+            <img
+              style={{ width: "95%", height: "95px", objectFit: "cover" }}
+              src={recipe.thumbnail_url}
+              alt={recipe.name}
+            />
+            <p
+              className={
+                recipe.thumbnail_url && recipe.thumbnail_url.length > 200
+                  ? "animated-text"
+                  : ""
+              }
+            >
+              {recipe.name}
+            </p>
+            <IconContainer>
               <img
-                style={{ width: '95%', height: '95px', objectFit: 'cover' }}
-                src={recipe.thumbnail_url}
-                alt={recipe.name}
+                onMouseEnter={() => handleIconHover(index)}
+                onMouseLeave={handleIconLeave}
+                src={hoveredImageIndex === index ? IconFav : Icon}
+                alt=""
               />
-              <p className={recipe.thumbnail_url && recipe.thumbnail_url.length > 200 ? 'animated-text' : ''}>
-                {recipe.name}
-              </p>
-              <IconContainer>
-                <img
-                  onMouseEnter={() => handleIconHover(index)}
-                  onMouseLeave={handleIconLeave}
-                  src={hoveredImageIndex === index ? IconFav : Icon} alt=""
-                />
-              </IconContainer>
-            </Divv>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-  )
-}
+            </IconContainer>
+          </Divv>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+};
 
-export default CarouselMainComp
+export default CarouselMainComp;
