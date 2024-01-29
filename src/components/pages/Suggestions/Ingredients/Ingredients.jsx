@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
 import { IngredientsContainer, BarSection, ContainerProductList, WrapperInputs, WrapperContent, StyledDeleteIcon, AddPlus, StyledPlusIcon, StyledSearchIcon, IngredientElement } from './styles.js';
 
 const IngredientsWrapper = styled.div`
-  background-color: #86BF80;
+  background-color: #86BF80;  
   padding: 20px;
   border-radius: 8px;
 `;
@@ -13,23 +14,35 @@ const IngredientsWrapper = styled.div`
 const Ingredients = ({ onAddIngredient }) => {
   const [inputValue, setInputValue] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' && inputValue.trim() !== '') {
-      // Dodaj składnik do listy
-      setIngredientsList([...ingredientsList, inputValue.trim()]);
-      // Dodaj składnik również do komponentu nadrzędnego
+      if (editingIndex !== null) {
+        // Edytowanie składnika
+        const updatedIngredientsList = [...ingredientsList];
+        updatedIngredientsList[editingIndex] = inputValue.trim();
+        setIngredientsList(updatedIngredientsList);
+        setEditingIndex(null);
+      } else {
+        // Dodaj nowy składnik
+        setIngredientsList([...ingredientsList, inputValue.trim()]);
+      }
       onAddIngredient(inputValue.trim());
-      // Wyczyść pole input
       setInputValue('');
     }
   };
 
   const handleDeleteIngredient = (index) => {
-    // Usuń składnik z listy
     const updatedIngredientsList = [...ingredientsList];
     updatedIngredientsList.splice(index, 1);
     setIngredientsList(updatedIngredientsList);
+    setEditingIndex(null); // Resetuj edytowany indeks po usunięciu składnika
+  };
+
+  const handleEditIngredient = (index) => {
+    setEditingIndex(index);
+    setInputValue(ingredientsList[index]);
   };
 
   return (
@@ -54,7 +67,11 @@ const Ingredients = ({ onAddIngredient }) => {
               <WrapperContent key={index}>
                 <IngredientElement>{ingredient}</IngredientElement>
                 <div>
-                  <EditIcon style={{ cursor: 'pointer' }} />
+                  {editingIndex === index ? (
+                    <SaveIcon style={{ cursor: 'pointer' }} onClick={() => handleKeyPress({ key: 'Enter' })} />
+                  ) : (
+                    <EditIcon style={{ cursor: 'pointer' }} onClick={() => handleEditIngredient(index)} />
+                  )}
                    <StyledDeleteIcon onClick={() => handleDeleteIngredient(index)} /> {/*USUWANIE NIE DZIALA JESZCZE */}
                 </div>
               </WrapperContent>
