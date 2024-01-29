@@ -27,7 +27,7 @@ const MatchingDishes = ({ ingredientsList }) => {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'c1fa8c4c47mshc735e397e60a5dfp16d672jsn213805a23649',
+          'X-RapidAPI-Key': 'b04392eaa5msh0f05838fdb88036p19bf10jsn4ac20fbe4882',
           'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
         },
       };
