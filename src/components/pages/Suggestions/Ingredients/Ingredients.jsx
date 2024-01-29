@@ -1,23 +1,40 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save';
-import { IngredientsContainer, BarSection, ContainerProductList, WrapperInputs, WrapperContent, StyledDeleteIcon, AddPlus, StyledPlusIcon, StyledSearchIcon, IngredientElement } from './styles.js';
+import React, { useState } from "react";
+import styled from "styled-components";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/Save";
+import {
+  IngredientsContainer,
+  BarSection,
+  ContainerProductList,
+  WrapperInputs,
+  WrapperContent,
+  StyledDeleteIcon,
+  AddPlus,
+  StyledPlusIcon,
+  StyledSearchIcon,
+  IngredientElement,
+} from "./styles.js";
 
 const IngredientsWrapper = styled.div`
-  background-color: #86BF80;  
+  background-color: #86bf80;
   padding: 20px;
   border-radius: 8px;
 `;
 
 const Ingredients = ({ onAddIngredient }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [ingredientsList, setIngredientsList] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && inputValue.trim() !== '') {
+    if (event.key === "Enter" && inputValue.trim() !== "") {
+      handleAddIngredient();
+    }
+  };
+
+  const handleAddIngredient = () => {
+    if (inputValue.trim() !== "") {
       if (editingIndex !== null) {
         // Edytowanie składnika
         const updatedIngredientsList = [...ingredientsList];
@@ -29,7 +46,7 @@ const Ingredients = ({ onAddIngredient }) => {
         setIngredientsList([...ingredientsList, inputValue.trim()]);
       }
       onAddIngredient(inputValue.trim());
-      setInputValue('');
+      setInputValue("");
     }
   };
 
@@ -59,7 +76,9 @@ const Ingredients = ({ onAddIngredient }) => {
               onKeyPress={handleKeyPress}
             />
           </div>
-          <StyledPlusIcon onClick={() => onAddIngredient(inputValue.trim())}><AddPlus /></StyledPlusIcon>
+          <StyledPlusIcon onClick={handleAddIngredient}>
+            <AddPlus />
+          </StyledPlusIcon>
         </BarSection>
         <ContainerProductList>
           <WrapperInputs>
@@ -68,11 +87,19 @@ const Ingredients = ({ onAddIngredient }) => {
                 <IngredientElement>{ingredient}</IngredientElement>
                 <div>
                   {editingIndex === index ? (
-                    <SaveIcon style={{ cursor: 'pointer' }} onClick={() => handleKeyPress({ key: 'Enter' })} />
+                    <SaveIcon
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleKeyPress({ key: "Enter" })}
+                    />
                   ) : (
-                    <EditIcon style={{ cursor: 'pointer' }} onClick={() => handleEditIngredient(index)} />
+                    <EditIcon
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleEditIngredient(index)}
+                    />
                   )}
-                   <StyledDeleteIcon onClick={() => handleDeleteIngredient(index)} /> {/*USUWANIE NIE DZIALA JESZCZE */}
+                  <StyledDeleteIcon
+                    onClick={() => handleDeleteIngredient(index)}
+                  />
                 </div>
               </WrapperContent>
             ))}
