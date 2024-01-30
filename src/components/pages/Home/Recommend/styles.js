@@ -9,6 +9,7 @@ export const WidgetBox = styled("div")(({ theme }) => ({
   padding: "20px",
   maxWidth: "900px",
   width: "95%",
+  minHeight: "300px",
 }));
 
 export const StyledTitle = styled("p")(({ theme }) => ({
@@ -22,14 +23,14 @@ export const RecipesBox = styled("div")(({ theme }) => ({
 }));
 
 export const Recipe = styled("div")(({ theme }) => ({
-  width: "20%",
-  height: "20%",
+  width: "185px",
+  height: "180px",
   justifyContent: "center",
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
   background: globalTheme.palette.complementary.main,
-  margin: "20px",
+  margin: "15px",
   borderRadius: "10px",
 }));
 
@@ -46,5 +47,4 @@ export const RecipeImg = styled("img")(({ theme }) => ({
 export const RecipeTitle = styled("p")(({ theme }) => ({
   textAlign: "center",
   fontSize: globalTheme.typography.subtitle.main,
-  margin: "0 5px",
 }));
