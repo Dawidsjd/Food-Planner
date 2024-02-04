@@ -75,9 +75,11 @@ const FoodList = () => {
 
   return (
     <ContentContainer>
+
       <TopLeftContainer>
         <MealTitle />
       </TopLeftContainer>
+
       <TopRightContainer>
         <MakroProgress draggedRecipes={draggedRecipes} />
       </TopRightContainer>
@@ -103,6 +105,7 @@ const FoodList = () => {
           />
         </ScrollMealsContainer>
       </BottomRightContainer>
+      
     </ContentContainer>
   );
 };

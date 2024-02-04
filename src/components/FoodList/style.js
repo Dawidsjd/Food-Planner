@@ -2,6 +2,13 @@ import { styled } from "@mui/system";
 
 export const ContentContainer = styled("div")(({ theme }) => ({
   width: "100%",
+  [theme.breakpoints.down("680")]: {
+    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '4em'
+  },
 }));
 
 export const TopLeftContainer = styled("div")(({ theme }) => ({
@@ -13,7 +20,12 @@ export const TopLeftContainer = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  // Dodaj dodatkowe style według potrzeb
+  [theme.breakpoints.down("680")]: {
+    position: 'relative',
+    width: '100%',
+    marginTop: '1em'
+  },
+  
 }));
 
 export const TopRightContainer = styled("div")(({ theme }) => ({
@@ -22,7 +34,10 @@ export const TopRightContainer = styled("div")(({ theme }) => ({
   right: 0,
   width: "50%",
   height: "40%",
-  // Dodaj dodatkowe style według potrzeb
+  [theme.breakpoints.down("680")]: {
+    position: 'relative',
+  },
+  
 }));
 
 export const BottomLeftContainer = styled("div")(({ theme }) => ({
@@ -31,7 +46,10 @@ export const BottomLeftContainer = styled("div")(({ theme }) => ({
   left: 0,
   width: "50%",
   height: "60%",
-  // Dodaj dodatkowe style według potrzeb
+  [theme.breakpoints.down("680")]: {
+    position: 'relative',
+  },
+  
 }));
 
 export const BottomRightContainer = styled("div")(({ theme }) => ({
@@ -51,6 +69,10 @@ export const BottomRightContainer = styled("div")(({ theme }) => ({
     marginRight: "1em",
     borderRadius: "5px",
   },
+  [theme.breakpoints.down("680")]: {
+    position: 'relative',
+  },
+
 }));
 
 export const ScrollMealsContainer = styled("div")(({ theme }) => ({

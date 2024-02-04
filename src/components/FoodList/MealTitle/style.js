@@ -12,6 +12,13 @@ export const TitleContainer = styled('div')(({ theme }) => ({
   backdropFilter: "blur(9.3px)",
     boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     borderRadius: "10px",
+
+    [theme.breakpoints.down("680")]: {
+      flexDirection: 'row',
+      alignContent: 'center',
+      justifyContent: 'center',
+      alignItems: 'baseline'
+    },
 }));
 
 export const ContentContainer = styled('div')({
