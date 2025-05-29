@@ -39,7 +39,7 @@ const Menu = () => {
       </StyledHeader>
       <StyledNav>
         <StyledMenu>
-          <StyledTitle style={{ marginBottom: 10 }}>Menu</StyledTitle>
+          <StyledTitle style={{ marginBottom: 10 }}>Meenu</StyledTitle>
           <StyledLinks>
             <StyledItem>
               <NavLink
